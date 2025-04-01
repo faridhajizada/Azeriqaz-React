@@ -12,17 +12,11 @@ import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {Logout, AuthPage, useAuth} from '../modules/auth'
 import {App} from '../App'
 
-/**
- * Base URL of the website.
- *
- * @see https://facebook.github.io/create-react-app/docs/using-the-public-folder
- */
-const {BASE_URL} = import.meta.env
 
 const AppRoutes: FC = () => {
   const {currentUser} = useAuth()
   return (
-    <BrowserRouter basename={BASE_URL}>
+    <BrowserRouter >
       <Routes>
         <Route element={<App />}>
           <Route path='error/*' element={<ErrorsPage />} />

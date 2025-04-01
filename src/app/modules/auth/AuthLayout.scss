@@ -1,0 +1,23 @@
+.loginTitle {
+  color: white !important;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+@media screen and (max-width: 768px) {
+  .loginTitle {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 565) {
+  .loginTitle {
+    font-size: 18px;
+  }
+}
+
+.logoImg {
+//   width: 100px;
+//   height: 100px;
+//   margin-bottom: 20px;
+}

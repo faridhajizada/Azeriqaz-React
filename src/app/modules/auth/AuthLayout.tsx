@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../_metronic/helpers";
+// import logo from "/mf-logo.png";
+import logo from "/Azeriqaz-favicon.png";
+// import { helpers } from "chart.js";
+
+import "./AuthLayout.scss";
 
 const AuthLayout = () => {
   useEffect(() => {
@@ -47,22 +52,27 @@ const AuthLayout = () => {
         }}
       >
         {/* begin::Content */}
-        <div className="d-flex flex-column flex-center py-15 px-5 px-md-15 w-100">
+        <div className="d-flex flex-column flex-center py-15 px-5 px-md-15 w-100 ">
           {/* begin::Logo */}
-          <Link to="/" className="mb-12">
-            <img
-              alt="Logo"
-              src={"http://azeriqaz.test/assets/media/logos/logo-white.png"}
-              className="h-75px"
-            />
-          </Link>
+          <div className="d-flex  align-items-center">
+            <Link to="/" className="">
+              <img
+                alt="Logo"
+                src={logo}
+                // className="logoImg"
+                className="h-75px"
+                // style={{ height: "250px", width: "250px" }}
+              />
+            </Link>
+            <h1 className="loginTitle">MF - Azeriqaz</h1>
+          </div>
           {/* end::Logo */}
 
           {/* end::Title */}
 
           {/* begin::Text */}
-          <div className="text-white fs-base text-center">
-            <p>©2025 Azəriqaz İB. Bütün hüquqlar qorunur</p>
+          <div className="text-white fs-base text-center d-none d-md-block pt-12">
+            <p>©2025 FavorIt Solutions LLC . Bütün hüquqlar qorunur</p>
           </div>
           {/* end::Text */}
         </div>

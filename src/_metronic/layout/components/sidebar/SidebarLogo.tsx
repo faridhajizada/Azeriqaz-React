@@ -53,14 +53,14 @@ const SidebarLogo = (props: PropsType) => {
         {config.layoutType === 'dark-sidebar' ? (
           <img
             alt='Logo'
-            src={toAbsoluteUrl('media/logos/default-dark.svg')}
+            src={toAbsoluteUrl('./azeriqaz-logo-white.png')}
             className='h-25px app-sidebar-logo-default'
           />
         ) : (
           <>
             <img
               alt='Logo'
-              src={toAbsoluteUrl('media/logos/default.svg')}
+              src={toAbsoluteUrl('./azeriqaz-logo-white.png')}
               className='h-25px app-sidebar-logo-default theme-light-show'
             />
             <img
@@ -73,7 +73,7 @@ const SidebarLogo = (props: PropsType) => {
 
         <img
           alt='Logo'
-          src={toAbsoluteUrl('media/logos/default-small.svg')}
+          src={toAbsoluteUrl('./azeriqaz-logo-white.png')}
           className='h-20px app-sidebar-logo-minimize'
         />
       </Link>
