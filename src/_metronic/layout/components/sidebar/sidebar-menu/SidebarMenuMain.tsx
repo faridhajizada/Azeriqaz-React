@@ -27,6 +27,34 @@ const SidebarMenuMain = () => {
         fontIcon="bi-person"
       />
 
+      <SidebarMenuItemWithSub
+        to="#"
+        title="Qəza çağırışı"
+        fontIcon="bi-archive"
+        icon="ki-outline ki-abstract-42 fs-2"
+      >
+        <SidebarMenuItem
+          to="/dashboard/accident-calls/call"
+          title="Çağırışlar"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/accident-calls/car"
+          title="Avtomobillər"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/crafted/pages/profile/category"
+          title="Kategoriyalar"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/crafted/pages/profile/statistics"
+          title="Statistikalar"
+          hasBullet={true}
+        />
+      </SidebarMenuItemWithSub>
+
       <div className="menu-item">
         <div className="menu-content pt-8 pb-2">
           <span className="menu-section text-muted text-uppercase fs-8 ls-1">
