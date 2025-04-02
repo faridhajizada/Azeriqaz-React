@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { toAbsoluteUrl } from "../../../_metronic/helpers";
 // import logo from "/mf-logo.png";
-import logo from "/Azeriqaz-favicon.png";
+import logo from "/azəriqaz1.png";
 // import { helpers } from "chart.js";
 
 import "./AuthLayout.scss";
@@ -64,7 +64,7 @@ const AuthLayout = () => {
                 // style={{ height: "250px", width: "250px" }}
               />
             </Link>
-            <h1 className="loginTitle">MF - Azeriqaz</h1>
+            {/* <h1 className="loginTitle">MF - Azeriqaz</h1> */}
           </div>
           {/* end::Logo */}
 
