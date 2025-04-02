@@ -1,5 +1,5 @@
 import React from "react";
-import { KTIcon } from "./../../../../../_metronic/helpers";
+import { KTIcon } from "../../../../../_metronic/helpers";
 
 function ExportBtn() {
   return (

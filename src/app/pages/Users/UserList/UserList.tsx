@@ -1,6 +1,6 @@
 import React from "react";
 import { KTIcon } from "./../../../../_metronic/helpers";
-
+import { UserActionsCell } from "./../../../modules/apps/user-management/users-list/table/columns/UserActionsCell";
 
 function UserList() {
   const columns = [
@@ -91,7 +91,11 @@ function UserList() {
           <thead>
             <tr className="fw-bold  bg-primary text-white fs-5 text-uppercase ">
               {columns?.map((column) => (
-                <th key={column.key} className="px-2 py-4">
+                <th
+                  key={column.key}
+                  className="px-2 py-4"
+                  style={{ border: "1px solid #e0e0e0" }}
+                >
                   {column.label}
                 </th>
               ))}
@@ -100,7 +104,14 @@ function UserList() {
 
           <tbody>
             {data?.map((row, index) => (
-              <tr key={index} style={{ marginTop: "20px", height: "80px" }}>
+              <tr
+                key={index}
+                style={{
+                  marginTop: "20px",
+                  height: "80px",
+                  border: "1px solid #80808014",
+                }}
+              >
                 <td className="text-center">
                   <a
                     href="#"
@@ -112,7 +123,7 @@ function UserList() {
                 <td className="d-flex align-items-center">
                   <div className="symbol symbol-50px me-2 br-2 symbol-circle">
                     <span className="symbol-label bg-light-danger">
-                      <i className="ki-duotone ki-scroll fs-2x text-danger">
+                      <i className="ki-duotone ki-scroll fs-2 text-danger">
                         {row.title}
                       </i>
                     </span>
@@ -121,11 +132,11 @@ function UserList() {
                   <div>
                     <a
                       href="#"
-                      className="text-gray-900 fw-bold text-hover-primary d-block mb-1 fs-4"
+                      className="text-gray-900 fw-bold text-hover-primary d-block mb-1 fs-5"
                     >
                       {row.name}
                     </a>
-                    <span className="text-muted fw-semibold d-block fs-5 text-gray-800">
+                    <span className="text-muted fw-semibold d-block fs-6 text-gray-800">
                       {row.email}
                     </span>
                   </div>
@@ -166,7 +177,7 @@ function UserList() {
                   </span>
                 </td>
                 <td className="text-end">
-                  <a
+                  {/* <a
                     href="#"
                     className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
                   >
@@ -183,7 +194,8 @@ function UserList() {
                     className="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
                   >
                     <KTIcon iconName="trash" className="fs-3" />
-                  </a>
+                  </a> */}
+                  <UserActionsCell />
                 </td>
               </tr>
             ))}

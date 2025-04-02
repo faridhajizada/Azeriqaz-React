@@ -1,7 +1,7 @@
 import React from "react";
 import { Content } from "./../../../_metronic/layout/components/content";
 import UserList from "./UserList/UserList.tsx";
-import UsersListHeader from "./UsersListHeader/UsersListHeader.tsx";
+import UsersListHeader from "./UserHeader/UserHeader.tsx";
 
 function Users() {
   return (

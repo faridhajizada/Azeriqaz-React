@@ -19,4 +19,4 @@ const UsersListHeader = () => {
   );
 };
 
-export default { UsersListHeader };
+export  { UsersListHeader };
