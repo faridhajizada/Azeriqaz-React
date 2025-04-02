@@ -7,6 +7,7 @@ import { MenuTestPage } from "../pages/MenuTestPage";
 import { getCSSVariableValue } from "../../_metronic/assets/ts/_utils";
 import { WithChildren } from "../../_metronic/helpers";
 import BuilderPageWrapper from "../pages/layout-builder/BuilderPageWrapper";
+import Call from '../pages/accident-calls/Call/Call';
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import("../modules/profile/ProfilePage"));
@@ -19,6 +20,7 @@ const PrivateRoutes = () => {
   );
 
   const Users = lazy(() => import("../pages/Users/Users"));
+  const Call = lazy(() => import("../pages/accident-calls/Call/Call"));
   return (
     <Routes>
       <Route element={<MasterLayout />}>
@@ -28,6 +30,9 @@ const PrivateRoutes = () => {
         <Route path="dashboard" element={<DashboardWrapper />} />
         <Route path="builder" element={<BuilderPageWrapper />} />
         <Route path="/dashboard/users" element={<Users />} />
+        <Route path="/dashboard/accident-calls/call" element={<Call />} />
+
+
         <Route path="menu-test" element={<MenuTestPage />} />
         {/* Lazy Modules */}
         <Route
