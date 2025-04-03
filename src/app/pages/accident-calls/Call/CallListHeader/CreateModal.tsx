@@ -27,6 +27,14 @@ const CustomStepper = ({ activeStep, steps, onStepClick }) => {
   );
 };
 
+const RequiredField = ({ children }) => (
+  <>
+    <Form.Label>
+      {children} <span className="text-danger">*</span>
+    </Form.Label>
+  </>
+);
+
 function CreateModal() {
   const handleStepClick = (stepIndex) => {
     setActiveStep(stepIndex);
@@ -46,6 +54,8 @@ function CreateModal() {
     // Поля для Abonent
     subscriberCode: "",
     meterNumber: "",
+    abonentCode: "",
+    passport: "",
     // Поля для Qeyri abonent
     firstName: "",
     lastName: "",
@@ -125,66 +135,87 @@ function CreateModal() {
               <>
                 <div className="row ">
                   <Form.Group className="col-md-12 mb-3">
-                    <Form.Label>Abonent kodu*</Form.Label>
+                    <RequiredField>Abonent kodu*</RequiredField>
                     <div className="d-flex">
                       <Form.Control
                         type="text"
                         name="subscriberCode"
                         value={formData.subscriberCode}
                         onChange={handleChange}
-                        className="me-2" // добавляем отступ между полем и кнопкой
+                        className="me-2"
+                        required
                       />
-                      <Button variant="primary">Axtar</Button>
+                      <Button
+                        variant="primary"
+                        style={{ width: "-webkit-fill-available" }}
+                      >
+                        Axtar
+                      </Button>
                     </div>
                   </Form.Group>
                 </div>
 
                 <div className="row">
-                  <Form.Group className="col-md-6 mb-3">
-                    <Form.Label>Ad Soyad</Form.Label>
+                  <Form.Group className="col-md-4 mb-3">
+                    <RequiredField> Ad</RequiredField>
                     <Form.Control
                       type="text"
-                      value={`${formData.firstName} ${formData.lastName}`}
+                      value={formData.firstName}
+                      disabled
+                      required
+                    />
+                  </Form.Group>
+                  <Form.Group className="col-md-4 mb-3">
+                    <RequiredField> Soyad</RequiredField>
+                    <Form.Control
+                      type="text"
+                      value={formData.lastName}
                       disabled
                     />
                   </Form.Group>
-                  <Form.Group className="col-md-6 mb-3">
-                    <Form.Label>Ata adı</Form.Label>
+                  <Form.Group className="col-md-4 mb-3">
+                    <RequiredField>Ata adı</RequiredField>
                     <Form.Control
                       type="text"
                       value={formData.fatherName}
                       disabled
                     />
                   </Form.Group>
-                  <Form.Group className="col-md-6 mb-3">
-                    <Form.Label>Ad Soyad</Form.Label>
+                  <Form.Group className="col-md-4 mb-3">
+                    <RequiredField>FIN</RequiredField>
+                    <Form.Control type="text" value={formData.fin} disabled />
+                  </Form.Group>
+                  <Form.Group className="col-md-4 mb-3">
+                    <RequiredField> Soyad</RequiredField>
                     <Form.Control
                       type="text"
-                      value={`${formData.firstName} ${formData.lastName}`}
+                      value={formData.abonentCode}
                       disabled
                     />
                   </Form.Group>
-                  <Form.Group className="col-md-6 mb-3">
-                    <Form.Label>Ata adı</Form.Label>
+                  <Form.Group className="col-md-4 mb-3">
+                    <RequiredField>Sayğac nömrəsi</RequiredField>
                     <Form.Control
                       type="text"
                       value={formData.fatherName}
                       disabled
                     />
                   </Form.Group>
+
                   <Form.Group className="col-md-6 mb-3">
-                    <Form.Label>Ad Soyad</Form.Label>
+                    <RequiredField>Pasport nömrəsi</RequiredField>
                     <Form.Control
                       type="text"
-                      value={`${formData.firstName} ${formData.lastName}`}
+                      value={formData.passport}
                       disabled
                     />
                   </Form.Group>
+
                   <Form.Group className="col-md-6 mb-3">
-                    <Form.Label>Ata adı</Form.Label>
+                    <RequiredField> Ünvan</RequiredField>
                     <Form.Control
                       type="text"
-                      value={formData.fatherName}
+                      value={formData.address}
                       disabled
                     />
                   </Form.Group>
@@ -192,8 +223,8 @@ function CreateModal() {
               </>
             ) : (
               <div className="row">
-                <Form.Group className="col-md-6 mb-3">
-                  <Form.Label>Ad *</Form.Label>
+                <Form.Group className="col-md-4 mb-3">
+                  <RequiredField>Ad</RequiredField>
                   <Form.Control
                     type="text"
                     name="firstName"
@@ -202,8 +233,8 @@ function CreateModal() {
                     required
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
-                  <Form.Label>Soyad *</Form.Label>
+                <Form.Group className="col-md-4 mb-3">
+                  <RequiredField>Soyad</RequiredField>
                   <Form.Control
                     type="text"
                     name="lastName"
@@ -212,25 +243,7 @@ function CreateModal() {
                     required
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
-                  <Form.Label>FIN</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="fin"
-                    value={formData.fin}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
-                  <Form.Label>Abunə kodu</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="subscriberCode"
-                    value={formData.subscriberCode}
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
+                <Form.Group className="col-md-4 mb-3">
                   <Form.Label>Ata adı</Form.Label>
                   <Form.Control
                     type="text"
@@ -239,16 +252,16 @@ function CreateModal() {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group className="col-md- mb-3">
-                  <Form.Label>Sayğac nömrəsi</Form.Label>
+                <Form.Group className="col-md-4 mb-3">
+                  <Form.Label>FIN</Form.Label>
                   <Form.Control
                     type="text"
-                    name="meterNumber"
-                    value={formData.meterNumber}
+                    name="fin"
+                    value={formData.fin}
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
+                <Form.Group className="col-md-4 mb-3">
                   <Form.Label>Pasport nömrəsi</Form.Label>
                   <Form.Control
                     type="text"
@@ -257,17 +270,16 @@ function CreateModal() {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
-                  <Form.Label>Ünvan *</Form.Label>
+                <Form.Group className="col-md-4 mb-3">
+                  <Form.Label>Sayğac nömrəsi</Form.Label>
                   <Form.Control
                     type="text"
-                    name="address"
-                    value={formData.address}
+                    name="meterNumber"
+                    value={formData.meterNumber}
                     onChange={handleChange}
-                    required
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
+                <Form.Group className="col-md-4 mb-3">
                   <Form.Label>Orientir</Form.Label>
                   <Form.Control
                     type="text"
@@ -276,8 +288,8 @@ function CreateModal() {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
-                  <Form.Label>Telefon *</Form.Label>
+                <Form.Group className="col-md-4 mb-3">
+                  <RequiredField>Telefon</RequiredField>
                   <Form.Control
                     type="text"
                     name="phone"
@@ -286,7 +298,7 @@ function CreateModal() {
                     required
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
+                <Form.Group className="col-md-4 mb-3">
                   <Form.Label>2-ci Telefon</Form.Label>
                   <Form.Control
                     type="text"
@@ -295,12 +307,28 @@ function CreateModal() {
                     onChange={handleChange}
                   />
                 </Form.Group>
-                <Form.Group className="col-md-6 mb-3">
-                  <Form.Label>Ünvan seç</Form.Label>
-                  <Button variant="outline-secondary" className="w-100">
-                    Ünvan seçim et
-                  </Button>
+                <Form.Group className="col-md-4 mb-3">
+                  <Form.Label>Abunə kodu</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="subscriberCode"
+                    value={formData.subscriberCode}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
+                <Form.Group className="col-md-4 mb-3">
+                  <RequiredField>Ünvan</RequiredField>
+                  <Form.Control
+                    type="text"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
+                <div className="col-md-4 mb-3 mt-8">
+                  <button className="btn btn-primary w-100">Ünvan axtar</button>
+                </div>
               </div>
             )}
           </div>
