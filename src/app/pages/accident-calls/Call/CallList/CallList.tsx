@@ -160,7 +160,7 @@ function CallList() {
                   <span className="text-gray-900 fw-bold fs-6">{row.note}</span>
                 </td>
                 <td>
-                  <span className="fs-6 badge bg-success">{row.status}</span>
+                  <span className="fs-6 badge bg-warning text-white">{row.status}</span>
                 </td>
                 <td>
                   <span className="text-gray-900 fw-bold fs-6">

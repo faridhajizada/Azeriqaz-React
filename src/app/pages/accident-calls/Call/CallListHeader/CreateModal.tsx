@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
-import { KTIcon } from "./../../../../../../_metronic/helpers";
+import { KTIcon } from "../../../../../_metronic/helpers";
 
 function CreateModal() {
   const [showModal, setShowModal] = useState(false);
