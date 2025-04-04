@@ -496,7 +496,7 @@ function CreateModal() {
   return (
     <>
       <Button variant="primary" onClick={openModalCreate}>
-        Qəza çağırışı yarat
+        <i className="ki-duotone ki-plus fs-2"></i> Qəza çağırışı yarat
       </Button>
 
       <Modal show={showModal} onHide={closeModal} centered size="lg">

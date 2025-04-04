@@ -5,14 +5,12 @@ import CallList from "./CallList/CallList";
 
 function Call() {
   return (
-    <>
-      <Content>
-        <div className={`card mb-5 mb-xl-8`}>
-          <CallListHeader />
-          <CallList />
-        </div>
-      </Content>
-    </>
+    <Content>
+      <div className={`card mb-5 mb-xl-8`}>
+        <CallListHeader />
+        <CallList />
+      </div>
+    </Content>
   );
 }
 
