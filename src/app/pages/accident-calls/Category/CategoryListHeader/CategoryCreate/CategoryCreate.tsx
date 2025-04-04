@@ -5,12 +5,9 @@ import "./CategoryCreate.scss";
 function CategoryCreate() {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    brand: "",
-    serialNumber: "",
-    designation: "",
-    region: "",
-    district: "",
-    worker: "",
+    categoryName: "",
+    highCategory: "",
+    status: "",
   });
 
   const openModal = () => setShowModal(true);
@@ -31,7 +28,7 @@ function CategoryCreate() {
   return (
     <>
       <Button variant="primary" onClick={openModal}>
-        <i className="ki-duotone ki-plus fs-2"></i> Yeni avtomobil yarat
+        <i className="ki-duotone ki-plus fs-2"></i> Yeni Kateqoriya yarat
       </Button>
 
       <Modal show={showModal} onHide={closeModal} centered size="lg">
@@ -42,84 +39,37 @@ function CategoryCreate() {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <div className="row">
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Marka adı *</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>Kateqoriya adı *</Form.Label>
                 <Form.Control
                   type="text"
                   name="brand"
-                  value={formData.brand}
+                  value={formData.categoryName}
                   onChange={handleChange}
-                  placeholder="Marka adı"
+                  placeholder="Kateqoriya adı"
                   required
                 />
               </Form.Group>
 
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Seria nömrəsi *</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>Üst kateqorya</Form.Label>
                 <Form.Control
                   type="text"
                   name="serialNumber"
-                  value={formData.serialNumber}
+                  value={formData.highCategory}
                   onChange={handleChange}
-                  placeholder="Seria nömrəsi"
-                  required
+                  placeholder="Üst kateqorya"
                 />
               </Form.Group>
-            </div>
-
-            <div className="row">
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Təyinat *</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>Status</Form.Label>
                 <Form.Control
                   type="text"
-                  name="designation"
-                  value={formData.designation}
+                  name="Status"
+                  value={formData.status}
                   onChange={handleChange}
-                  placeholder="Təyinat"
-                  required
+                  placeholder="Status"
                 />
-              </Form.Group>
-
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Region *</Form.Label>
-                <Form.Select
-                  name="region"
-                  value={formData.region}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">---</option>
-                  <option value="Bakı">Bakı</option>
-                  <option value="Sumqayıt">Sumqayıt</option>
-                </Form.Select>
-              </Form.Group>
-            </div>
-
-            <div className="row">
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Rayon *</Form.Label>
-                <Form.Select
-                  name="district"
-                  value={formData.district}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="">---</option>
-                  <option value="Nərimanov">Nərimanov</option>
-                  <option value="Xətai">Xətai</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>İşçi</Form.Label>
-                <Form.Select
-                  name="worker"
-                  value={formData.worker}
-                  onChange={handleChange}
-                >
-                  <option value="">---</option>
-                  <option value="Elçin Məmmədov">Elçin Məmmədov</option>
-                </Form.Select>
               </Form.Group>
             </div>
 
