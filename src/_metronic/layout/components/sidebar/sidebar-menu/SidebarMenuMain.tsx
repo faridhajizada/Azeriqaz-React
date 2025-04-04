@@ -44,12 +44,12 @@ const SidebarMenuMain = () => {
           hasBullet={true}
         />
         <SidebarMenuItem
-          to="/crafted/pages/profile/category"
+          to="/dashboard/accident-calls/category"
           title="Kategoriyalar"
           hasBullet={true}
         />
         <SidebarMenuItem
-          to="/crafted/pages/profile/statistics"
+          to="/dashboard/accident-calls/statistics"
           title="Statistikalar"
           hasBullet={true}
         />
