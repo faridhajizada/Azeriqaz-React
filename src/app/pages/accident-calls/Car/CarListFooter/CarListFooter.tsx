@@ -14,7 +14,7 @@ function CarListFooter() {
 
   return (
     <>
-      <div className="row">
+      <div className="row px-4">
         <div className="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start">
           <div className="dataTables_length" id="kt_datatable_example_1_length">
             <label className="d-flex">

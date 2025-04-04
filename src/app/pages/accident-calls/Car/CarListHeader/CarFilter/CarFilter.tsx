@@ -2,11 +2,17 @@ import React from "react";
 
 function CarFilter() {
   return (
-    <>
-      <button type="button" className="btn btn-light-primary me-3">
-        <i className="fs-2 fas fa-filter"></i> Filter
-      </button>
-    </>
+    <div className="input-group" style={{ width: "300px" }}>
+      <span className="input-group-text">
+        <i className="fas fa-search"></i>
+      </span>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Axtarış..."
+        aria-label="Search"
+      />
+    </div>
   );
 }
 

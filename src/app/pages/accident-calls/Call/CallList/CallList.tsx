@@ -85,7 +85,7 @@ function CallList() {
     data: TableRow[];
   };
   return (
-    <div className="card-body py-3">
+    <div className="card-body py-3 px-2">
       {/* begin::Table container */}
       <div className="table-responsive">
         {/* begin::Table */}
@@ -160,7 +160,9 @@ function CallList() {
                   <span className="text-gray-900 fw-bold fs-6">{row.note}</span>
                 </td>
                 <td>
-                  <span className="fs-6 badge bg-warning text-white">{row.status}</span>
+                  <span className="fs-6 badge bg-warning text-white">
+                    {row.status}
+                  </span>
                 </td>
                 <td>
                   <span className="text-gray-900 fw-bold fs-6">

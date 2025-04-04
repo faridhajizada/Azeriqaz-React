@@ -61,7 +61,7 @@ const getStatusBadge = (status: string) => {
 
 const CarList: React.FC = () => {
   return (
-    <div className="card-body py-3 px-0">
+    <div className="card-body py-3 px-2">
       <div className="table-responsive">
         <table className="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
           <thead>

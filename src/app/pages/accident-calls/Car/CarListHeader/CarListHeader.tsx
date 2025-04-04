@@ -8,7 +8,7 @@ function CarListHeader() {
     <>
       <CallListTitle />
 
-      <div className="py-8 px-10">
+      <div className="py-8 px-2">
         <div className="d-flex justify-content-between">
           <CallListFilter />
           <CreateModal />
