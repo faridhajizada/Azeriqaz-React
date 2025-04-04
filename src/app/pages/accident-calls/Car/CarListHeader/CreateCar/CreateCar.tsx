@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
-import "./CreateCarModal.css";
+import "./CreateCar.css";
 
 const CreateCarModal: React.FC = () => {
   const [showModal, setShowModal] = useState(false);

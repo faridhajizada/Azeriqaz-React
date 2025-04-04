@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CallListTitle from "./CarTitle/CarTitle";
-import CreateModal from "./CreateCarModal/CreateCarModal";
+import CreateModal from "./CreateCar/CreateCar";
 import CallListFilter from "./CarFilter/CarFilter";
 
 function CarListHeader() {
