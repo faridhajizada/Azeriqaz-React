@@ -15,7 +15,7 @@ function CallList() {
     { key: "note", label: "qeyd" },
     { key: "status", label: "status" },
     { key: "worker", label: "işçi" },
-    { key: "last_status_date", label: "Son status tarixi" },
+    { key: "last_status_date", label: "Status tarixi" },
     { key: "created_at", label: "Yaradılma tarixi" },
     { key: "operations", label: "əməliyyatlar" },
   ];
@@ -97,7 +97,7 @@ function CallList() {
                 <th
                   key={column.key}
                   className="px-2 py-4"
-                  style={{ border: "1px solid #e0e0e0" }}
+                  style={{ border: "1px solid white", fontSize: "12px" }}
                 >
                   {column.label}
                 </th>
@@ -111,7 +111,7 @@ function CallList() {
               <tr
                 key={index}
                 className="border-bottom"
-                style={{ height: "60px" }}
+                style={{ height: "60px", fontSize: "6px" }}
               >
                 <td className="text-center">
                   <a
