@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import CallListTitle from "./CarTitle/CarTitle";
 import CreateModal from "./CreateCar/CreateCar";
 import CallListFilter from "./CarFilter/CarFilter";
+import PageTitle from "./../../../../components/PageTitle/PageTitle";
 
 function CarListHeader() {
   return (
     <>
-      <CallListTitle />
+      <PageTitle title="Avtomobillər" breadcrumb="Dashboard / Qəza Çağırışı / Avtomobillər" />
       <div className="py-8 px-2">
         <div className="d-flex justify-content-between">
           <CallListFilter />

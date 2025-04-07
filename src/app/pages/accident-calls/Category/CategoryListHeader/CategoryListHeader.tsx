@@ -1,11 +1,11 @@
 import CategoryCreate from "./CategoryCreate/CategoryCreate";
 import CategoryFilter from "./CategoryFilter/CategoryFilter";
-import CategoryTitle from "./CategoryTitle/CategoryTitle";
+import PageTitle from "./../../../../components/PageTitle/PageTitle";
 
 function CategoryListHeader() {
   return (
     <>
-      <CategoryTitle />
+      <PageTitle title="Kategoriyalar" breadcrumb="Dashboard / Qəza Çağırışı /  Kategoriyalar" />
       <div className="py-8 px-2">
         <div className="d-flex justify-content-between">
           <CategoryFilter />
@@ -17,3 +17,4 @@ function CategoryListHeader() {
 }
 
 export default CategoryListHeader;
+
