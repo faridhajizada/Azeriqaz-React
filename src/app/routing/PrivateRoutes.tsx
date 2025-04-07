@@ -7,7 +7,6 @@ import { MenuTestPage } from "../pages/MenuTestPage";
 import { getCSSVariableValue } from "../../_metronic/assets/ts/_utils";
 import { WithChildren } from "../../_metronic/helpers";
 import BuilderPageWrapper from "../pages/layout-builder/BuilderPageWrapper";
-import Category from "../pages/accident-calls/Category/Category";
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import("../modules/profile/ProfilePage"));
@@ -24,6 +23,9 @@ const PrivateRoutes = () => {
   const Car = lazy(() => import("./../pages/accident-calls/Car/Car"));
   const Category = lazy(
     () => import("./../pages/accident-calls/Category/Category")
+  );
+  const Statistics = lazy(
+    () => import("./../pages/accident-calls/Statistics/Statistics")
   );
   return (
     <Routes>
@@ -55,6 +57,14 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <Category />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/accident-calls/statistics"
+          element={
+            <SuspensedView>
+              <Statistics />
             </SuspensedView>
           }
         />
