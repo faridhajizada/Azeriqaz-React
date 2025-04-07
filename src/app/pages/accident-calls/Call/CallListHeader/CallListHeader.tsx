@@ -11,7 +11,11 @@ function CallListHeader() {
     <>
       <PageTitle
         title="Qəza çağırışları"
-        breadcrumb="Dashboard / Qəza Çağırışı  / Çağırışlar"
+        breadcrumb={[
+          { label: "Dashboard", path: "/dashboard" },
+          { label: "Qəza Çağırışı", path: "/dashboard/accident-calls/call" },
+          { label: "Çağırışlar", path: "/dashboard/accident-calls/call" },
+        ]}
       />
 
       <div className="py-8 px-2">

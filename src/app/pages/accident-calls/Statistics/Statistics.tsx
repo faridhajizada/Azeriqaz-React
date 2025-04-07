@@ -12,7 +12,17 @@ function Statistics() {
       <div className="card mb-5 mb-xl-8">
         <PageTitle
           title="Statistikalar"
-          breadcrumb="Dashboard / Qəza Çağırışı / Statistikalar"
+          breadcrumb={[
+            { label: "Dashboard", path: "/dashboard" },
+            {
+              label: "Qəza Çağırışı",
+              path: "/dashboard/accident-calls/statistics",
+            },
+            {
+              label: "Statistikalar",
+              path: "/dashboard/accident-calls/statistics",
+            },
+          ]}
         />
         <Filter />
         <div className="row">

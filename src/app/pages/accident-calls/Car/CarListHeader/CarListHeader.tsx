@@ -6,7 +6,14 @@ import PageTitle from "./../../../../components/PageTitle/PageTitle";
 function CarListHeader() {
   return (
     <>
-      <PageTitle title="Avtomobillər" breadcrumb="Dashboard / Qəza Çağırışı / Avtomobillər" />
+      <PageTitle
+        title="Avtomobillər"
+        breadcrumb={[
+          { label: "Dashboard", path: "/dashboard" },
+          { label: "Qəza Çağırışı", path: "/dashboard/accident-calls/car" },
+          { label: "Avtomobillər", path: "/dashboard/accident-calls/car" },
+        ]}
+      />
       <div className="py-8 px-2">
         <div className="d-flex justify-content-between">
           <CallListFilter />
