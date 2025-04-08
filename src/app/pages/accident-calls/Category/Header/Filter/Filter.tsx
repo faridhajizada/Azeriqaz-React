@@ -1,6 +1,6 @@
 import React from "react";
 
-function CategoryFilter() {
+function Filter() {
   return (
     <div className="input-group" style={{ width: "300px" }}>
       <span className="input-group-text">
@@ -16,4 +16,4 @@ function CategoryFilter() {
   );
 }
 
-export default CategoryFilter;
+export default Filter;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
-import "./CategoryCreate.scss";
+import "./Create.scss";
 
-function CategoryCreate() {
+function Create() {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     categoryName: "",
@@ -88,4 +88,4 @@ function CategoryCreate() {
   );
 }
 
-export default CategoryCreate;
+export default Create;

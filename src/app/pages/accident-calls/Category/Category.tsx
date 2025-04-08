@@ -1,8 +1,8 @@
 import React from "react";
 import { Content } from "./../../../../_metronic/layout/components/content/Content";
-import CategoryListHeader from "./CategoryListHeader/CategoryListHeader";
+import CategoryListHeader from "./Header/Header";
 import List from "./List/List";
-import CategoryListFooter from "./CategoryListFooter/CategoryListFooter";
+import Footer from "./Footer/Footer";
 
 function Category() {
   return (
@@ -10,7 +10,7 @@ function Category() {
       <div className={`card mb-5 mb-xl-8`}>
         <CategoryListHeader />
         <List />
-        <CategoryListFooter />
+        <Footer />
       </div>
     </Content>
   );

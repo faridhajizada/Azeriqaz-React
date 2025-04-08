@@ -1,8 +1,8 @@
-import CategoryCreate from "./CategoryCreate/CategoryCreate";
-import CategoryFilter from "./CategoryFilter/CategoryFilter";
-import PageTitle from "./../../../../components/PageTitle/PageTitle";
+import Create from "./Create/Create";
+import Filter from "./Filter/Filter";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
-function CategoryListHeader() {
+function Header() {
   return (
     <>
       <PageTitle
@@ -21,12 +21,12 @@ function CategoryListHeader() {
       />
       <div className="py-8 px-2">
         <div className="d-flex justify-content-between">
-          <CategoryFilter />
-          <CategoryCreate />
+          <Filter />
+          <Create />
         </div>
       </div>
     </>
   );
 }
 
-export default CategoryListHeader;
+export default Header;

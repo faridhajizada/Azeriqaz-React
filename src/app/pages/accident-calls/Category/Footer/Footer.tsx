@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CategoryListFooter() {
+function Footer() {
   const [currentPage, setCurrentPage] = useState(2); // Set the current page (for example, 2)
   const [pageSize, setPageSize] = useState(10); // Set the page size (for example, 10)
 
@@ -120,4 +120,4 @@ function CategoryListFooter() {
   );
 }
 
-export default CategoryListFooter;
+export default Footer;
