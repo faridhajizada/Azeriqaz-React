@@ -1,5 +1,6 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { DeleteModal } from "./../../../../components/DeleteModal/DeleteModal";
+import OperationsDropdown from "./../../../../components/OperationsDropdown/OperationsDropdown";
 type Column = {
   key: string;
   label: string;
@@ -60,6 +61,18 @@ const getStatusBadge = (status: string) => {
 };
 
 const List: React.FC = () => {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState<DataRow | null>(null);
+
+  const handleDeleteClick = (item: DataRow) => {
+    setItemToDelete(item);
+    setShowDeleteModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    setShowDeleteModal(false);
+  };
+
   return (
     <div className="card-body py-3 px-2">
       <div className="table-responsive">
@@ -89,18 +102,15 @@ const List: React.FC = () => {
                   <td key={column.key} className="px-2">
                     {column.isAction ? (
                       <div className="text-center">
-                        <a
-                          href="#"
-                          className="btn btn-icon btn-bg-light btn-color-primary btn-sm me-1"
-                        >
-                          <i className="fas fa-edit fs-3"></i>
-                        </a>
-                        <a
-                          href="#"
-                          className="btn btn-icon btn-bg-light  btn-color-danger btn-sm"
-                        >
-                          <i className="fas fa-trash-alt fs-3"></i>
-                        </a>
+                        <OperationsDropdown
+                          items={[
+                            { label: "Redaktə et" },
+                            {
+                              label: "Sil",
+                              onClick: () => handleDeleteClick(row),
+                            },
+                          ]}
+                        />
                       </div>
                     ) : column.key === "status" ? (
                       getStatusBadge(row[column.key as keyof DataRow])
@@ -116,6 +126,13 @@ const List: React.FC = () => {
           </tbody>
         </table>
       </div>
+
+      <DeleteModal
+        show={showDeleteModal}
+        onHide={() => setShowDeleteModal(false)}
+        onConfirm={handleConfirmDelete}
+        title={"Avtomobili silmək istədiyinizə əminsiniz?"}
+      />
     </div>
   );
 };

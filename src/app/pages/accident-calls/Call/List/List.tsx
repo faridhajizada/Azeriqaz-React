@@ -1,24 +1,30 @@
 import React, { useState } from "react";
-import { Modal, Button, Tab, Nav, Form } from "react-bootstrap";
 import OperationsDropdown from "../../../../components/OperationsDropdown/OperationsDropdown";
 import Show from "./Show/Show";
 import Passive from "./Passive/Passive";
-import Delete from "./Delete/Delete";
+import { DeleteModal } from "./../../../../components/DeleteModal/DeleteModal";
 
 function List() {
   const [show, setShow] = useState(false);
   const [passive, setPassive] = useState(false);
-  const [deleteItem, setDeleteItem] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+
+  const handleDeleteClick = (item: any) => {
+    setItemToDelete(item);
+    setShowDeleteModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    console.log("Deleting:", itemToDelete);
+    setShowDeleteModal(false);
+  };
 
   const handleShow = () => {
     setShow(true);
   };
   const handlePassive = () => {
     setPassive(true);
-  };
-
-  const handleDelete = () => {
-    setDeleteItem(true);
   };
 
   const handleClose = () => {
@@ -147,7 +153,7 @@ function List() {
                               { label: "Redaktə et" },
                               {
                                 label: "Sil",
-                                onClick: () => handleDelete(),
+                                onClick: () => handleDeleteClick(),
                               },
                             ]}
                           />
@@ -171,7 +177,12 @@ function List() {
       </div>
       <Show show={show} handleClose={handleClose} />
       <Passive passive={passive} handleClose={handleClose} />
-      <Delete deleteItem={deleteItem} handleClose={handleClose} />
+      <DeleteModal
+        show={showDeleteModal}
+        onHide={() => setShowDeleteModal(false)}
+        onConfirm={handleConfirmDelete}
+        title={"Qeyd olunan qəza çağırışını silmək istədiyinizdən əminsiniz?"}
+      />
     </>
   );
 }
