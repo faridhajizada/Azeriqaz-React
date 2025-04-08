@@ -3,22 +3,28 @@ import { Modal, Button, Tab, Nav, Form } from "react-bootstrap";
 import OperationsDropdown from "../../../../components/OperationsDropdown/OperationsDropdown";
 import Show from "./Show/Show";
 import Passive from "./Passive/Passive";
+import Delete from "./Delete/Delete";
 
 function List() {
   const [show, setShow] = useState(false);
   const [passive, setPassive] = useState(false);
+  const [deleteItem, setDeleteItem] = useState(false);
 
   const handleShow = () => {
     setShow(true);
+  };
+  const handlePassive = () => {
+    setPassive(true);
+  };
+
+  const handleDelete = () => {
+    setDeleteItem(true);
   };
 
   const handleClose = () => {
     setShow(false);
     setPassive(false);
-  };
-
-  const handlePassive = () => {
-    setPassive(true);
+    setDeleteItem(false);
   };
 
   const columns = [
@@ -141,7 +147,7 @@ function List() {
                               { label: "Redaktə et" },
                               {
                                 label: "Sil",
-                                onClick: () => alert("Silindi!"),
+                                onClick: () => handleDelete(),
                               },
                             ]}
                           />
@@ -165,6 +171,7 @@ function List() {
       </div>
       <Show show={show} handleClose={handleClose} />
       <Passive passive={passive} handleClose={handleClose} />
+      <Delete deleteItem={deleteItem} handleClose={handleClose} />
     </>
   );
 }

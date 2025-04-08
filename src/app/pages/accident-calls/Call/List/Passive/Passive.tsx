@@ -1,6 +1,11 @@
-import { Modal, Button, Tab, Nav, Form } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
 
-function Passive({ passive, handleClose }) {
+interface PassiveProps {
+  passive: Boolean;
+  handleClose: () => void;
+}
+
+function Passive({ passive, handleClose }: PassiveProps) {
   return (
     <>
       <Modal show={passive} onHide={handleClose} centered size="md">
@@ -13,7 +18,10 @@ function Passive({ passive, handleClose }) {
               ></i>
             </div>
 
-            <h3 className="mx-4" style={{ width: "-webkit-fill-available;" }}>
+            <h3
+              className="mx-4 fs-semibold"
+              style={{ width: "-webkit-fill-available;" }}
+            >
               Qeyd olunan qəza çağırışını passiv etmək istədiyinizdən əminsiniz?
             </h3>
 
@@ -22,12 +30,12 @@ function Passive({ passive, handleClose }) {
                 type="text"
                 placeholder="Səbəb daxil edin..."
                 className="mb-4"
-                style={{ width: "auto" }}
+                style={{ width: "60%", margin: "20px 0" }}
               />
             </div>
 
             <div className="d-flex justify-content-center gap-3">
-              <Button variant="danger" style={{ padding: "10px 24px" }}>
+              <Button variant="danger" style={{ padding: "12px 30px" }}>
                 Bəli
               </Button>
               <Button

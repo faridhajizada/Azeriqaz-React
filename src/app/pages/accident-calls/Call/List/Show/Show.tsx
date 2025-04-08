@@ -1,6 +1,11 @@
 import { Modal, Button, Tab, Nav, Form } from "react-bootstrap";
 
-function Show({ show, handleClose }) {
+interface ShowProps {
+  show: Boolean;
+  handleClose: () => void;
+}
+
+function Show({ show, handleClose }: ShowProps) {
   return (
     <>
       <Modal show={show} onHide={handleClose} size="xl">
