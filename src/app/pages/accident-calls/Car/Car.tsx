@@ -1,8 +1,8 @@
 import React from "react";
 import { Content } from "./../../../../_metronic/layout/components/content/Content";
-import CarListHeader from "./CarListHeader/CarListHeader";
-import CarList from "./CarList/CarList";
-import CarListFooter from "./CarListFooter/CarListFooter";
+import CarListHeader from "./Header/Header";
+import CarList from "./List/List";
+import CarListFooter from "./Footer/Footer";
 
 function Car() {
   return (

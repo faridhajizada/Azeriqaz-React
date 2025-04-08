@@ -10,7 +10,7 @@ function Show({ show, handleClose }: ShowProps) {
     <>
       <Modal show={show} onHide={handleClose} size="xl">
         <Modal.Header closeButton className="bg-primary text-white">
-          <Modal.Title>Qəza çağırışı</Modal.Title>
+          <Modal.Title className="text-white">Qəza çağırışı</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="row">

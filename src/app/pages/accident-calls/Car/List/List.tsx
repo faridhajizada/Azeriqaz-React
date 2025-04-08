@@ -59,7 +59,7 @@ const getStatusBadge = (status: string) => {
   );
 };
 
-const CarList: React.FC = () => {
+const List: React.FC = () => {
   return (
     <div className="card-body py-3 px-2">
       <div className="table-responsive">
@@ -120,4 +120,4 @@ const CarList: React.FC = () => {
   );
 };
 
-export default CarList;
+export default List;

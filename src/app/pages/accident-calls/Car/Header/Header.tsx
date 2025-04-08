@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import CreateModal from "./CreateCar/CreateCar";
-import CallListFilter from "./CarFilter/CarFilter";
-import PageTitle from "./../../../../components/PageTitle/PageTitle";
+import CallListFilter from "./Filter/Filter";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
 
-function CarListHeader() {
+function Header() {
   return (
     <>
       <PageTitle
@@ -24,4 +24,4 @@ function CarListHeader() {
   );
 }
 
-export default CarListHeader;
+export default Header;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function CarFilter() {
+function Filter() {
   return (
     <div className="input-group" style={{ width: "300px" }}>
       <span className="input-group-text">
@@ -16,4 +16,4 @@ function CarFilter() {
   );
 }
 
-export default CarFilter;
+export default Filter;
