@@ -44,7 +44,6 @@ function Show({ show, handleClose }: ShowProps) {
       <Modal.Body className="modal-body-metronic p-0">
         <Tab.Container defaultActiveKey="umumi">
           <Row className="g-0 h-100">
-            {/* Vertical Navbar */}
             <Col md={3} className="bg-light-dark">
               <Nav variant="pills" className="flex-column nav-pills-metronic">
                 <Nav.Item>
@@ -364,12 +363,6 @@ function Show({ show, handleClose }: ShowProps) {
           </Row>
         </Tab.Container>
       </Modal.Body>
-
-      <Modal.Footer className="modal-footer-metronic">
-        <button type="button" className="btn btn-primary">
-          Bağla
-        </button>
-      </Modal.Footer>
     </Modal>
   );
 }
