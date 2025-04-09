@@ -2,6 +2,10 @@ import { Modal, Button, Tab, Nav, Row, Col } from "react-bootstrap";
 import "./Show.scss";
 import Map from "./Map/Map";
 import Status from "./Status/Status";
+import Pictures from "./Pictures/Pictures";
+import Akt from "./Akt/Akt";
+import Ended from "./Ended/Ended";
+import Main from "./Main/Main";
 
 interface ShowProps {
   show: boolean;
@@ -106,133 +110,23 @@ function Show({ show, handleClose }: ShowProps) {
             <Col md={9} className="p-6">
               <Tab.Content className="h-100">
                 <Tab.Pane eventKey="umumi" className="h-100">
-                  <div className="d-flex flex-column h-100">
-                    <div className="mb-6">
-                      <h4 className="mb-4 text-primary"> Ümumi məlumatlar</h4>
-                      <div className="separator separator-dashed mb-6"></div>
-
-                      <Row>
-                        <Col md={6}>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Kateqoriya
-                            </span>
-                            <span className="text-dark fs-6 fw-bolder">
-                              Partlayış
-                            </span>
-                          </div>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Çağırış nömrəsi
-                            </span>
-                            <span className="text-dark fs-6 fw-bolder">
-                              AQ-2024-1
-                            </span>
-                          </div>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Ad Soyad
-                            </span>
-                            <span className="text-dark fs-6 fw-bolder">
-                              Elvin Malikov
-                            </span>
-                          </div>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Telefon nömrəsi
-                            </span>
-                            <span className="text-dark fs-6 fw-bolder">
-                              0506567001
-                            </span>
-                          </div>
-                        </Col>
-                        <Col md={6}>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Fin
-                            </span>
-                            <span className="text-dark fs-6 fw-bolder">
-                              5zk92ne
-                            </span>
-                          </div>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Abunəçi kodu
-                            </span>
-                            <span className="text-dark fs-6 fw-bolder">
-                              456456
-                            </span>
-                          </div>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Sayğac nömrəsi
-                            </span>
-                            <span className="text-dark fs-6 fw-bolder">
-                              321
-                            </span>
-                          </div>
-                          <div className="d-flex flex-column mb-8">
-                            <span className="text-gray-600 fs-7 fw-bold mb-2">
-                              Status
-                            </span>
-                            <span className="badge badge-light-success fs-7 fw-bold">
-                              Tamamlanıb
-                            </span>
-                          </div>
-                        </Col>
-                      </Row>
-                    </div>
-
-                    <div className="mt-auto">
-                      <div className="card bg-light">
-                        <div className="card-body p-4">
-                          <h5 className="text-gray-800 fw-bold mb-4">Qeyd</h5>
-                          <p className="text-gray-600 mb-0">test qeyd</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <Main />
                 </Tab.Pane>
 
                 <Tab.Pane eventKey="statuslar" className="h-100">
                   <Status />
                 </Tab.Pane>
                 <Tab.Pane eventKey="sekiller" className="h-100">
-                  <h4 className="mb-4 text-primary">Şəkillər</h4>
-                  <Row>
-                    {[1, 2, 3, 4].map((item) => (
-                      <Col md={3} key={item} className="mb-4">
-                        <div className="card h-100">
-                          <img
-                            src={`https://picsum.photos/300/200?random=${item}`}
-                            className="card-img-top"
-                            alt={`Şəkil ${item}`}
-                          />
-                          <div className="card-body">
-                            <p className="card-text text-muted">
-                              01.06.2024 {10 + item}:00
-                            </p>
-                          </div>
-                        </div>
-                      </Col>
-                    ))}
-                  </Row>
+                  <Pictures />
                 </Tab.Pane>
-
                 <Tab.Pane eventKey="akt" className="h-100">
-                  <h4 className="mb-4 text-primary">Akt sənədi</h4>
-                  <div className="border p-4 text-center bg-light">
-                    <p className="text-muted">Akt sənədi yüklənəcək</p>
-                    <Button variant="primary" className="mt-3">
-                      Akt yüklə
-                    </Button>
-                  </div>
+                  <Akt />
                 </Tab.Pane>
                 <Tab.Pane eventKey="xerite" className="h-100">
                   <Map />
                 </Tab.Pane>
                 <Tab.Pane eventKey="yekun" className="h-100">
-                  <p>yekun</p>
+                  <Ended />
                 </Tab.Pane>
               </Tab.Content>
             </Col>
