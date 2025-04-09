@@ -1,6 +1,7 @@
 import { Modal, Button, Tab, Nav, Row, Col } from "react-bootstrap";
 import "./Show.scss";
 import Map from "./Map/Map";
+import Status from "./Status/Status";
 
 interface ShowProps {
   show: boolean;
@@ -49,114 +50,43 @@ function Show({ show, handleClose }: ShowProps) {
                 <Nav.Item>
                   <Nav.Link eventKey="umumi" className="nav-link-metronic">
                     <span className="nav-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          d="M3 4C3 3.4 3.4 3 4 3H16C16.6 3 17 3.4 17 4V6C17 6.6 16.6 7 16 7H4C3.4 7 3 6.6 3 6V4Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          opacity="0.3"
-                          d="M3 10C3 9.4 3.4 9 4 9H10C10.6 9 11 9.4 11 10V16C11 16.6 10.6 17 10 17H4C3.4 17 3 16.6 3 16V10ZM13 10C13 9.4 13.4 9 14 9H16C16.6 9 17 9.4 17 10V16C17 16.6 16.6 17 16 17H14C13.4 17 13 16.6 13 16V10Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <i className="fas fa-info-circle"></i>
                     </span>
                     <span className="nav-text">Ümumi məlumat</span>
                   </Nav.Link>
                 </Nav.Item>
+
                 <Nav.Item>
                   <Nav.Link eventKey="statuslar" className="nav-link-metronic">
                     <span className="nav-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          d="M10 6C8.9 6 8 6.9 8 8C8 9.1 8.9 10 10 10C11.1 10 12 9.1 12 8C12 6.9 11.1 6 10 6ZM10 14C7.8 14 6 12.2 6 10C6 7.8 7.8 6 10 6C12.2 6 14 7.8 14 10C14 12.2 12.2 14 10 14Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <i className="fas fa-history"></i>
                     </span>
                     <span className="nav-text">Status tarixçəsi</span>
                   </Nav.Link>
                 </Nav.Item>
+
                 <Nav.Item>
                   <Nav.Link eventKey="sekiller" className="nav-link-metronic">
                     <span className="nav-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          opacity="0.3"
-                          d="M14 2H6C4.9 2 4 2.9 4 4V18C4 19.1 4.9 20 6 20H14C15.1 20 16 19.1 16 18V4C16 2.9 15.1 2 14 2Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM14 18H6V16C6 14.7 8.7 14 10 14C11.3 14 14 14.7 14 16V18Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <i className="fas fa-image"></i>
                     </span>
                     <span className="nav-text">Şəkillər</span>
                   </Nav.Link>
                 </Nav.Item>
+
                 <Nav.Item>
                   <Nav.Link eventKey="akt" className="nav-link-metronic">
                     <span className="nav-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          opacity="0.3"
-                          d="M14 2H6C4.9 2 4 2.9 4 4V18C4 19.1 4.9 20 6 20H14C15.1 20 16 19.1 16 18V4C16 2.9 15.1 2 14 2Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM14 18H6V16C6 14.7 8.7 14 10 14C11.3 14 14 14.7 14 16V18Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <i className="fas fa-file-alt"></i>
                     </span>
                     <span className="nav-text">Akt sənədi</span>
                   </Nav.Link>
                 </Nav.Item>
+
                 <Nav.Item>
                   <Nav.Link eventKey="xerite" className="nav-link-metronic">
                     <span className="nav-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          opacity="0.3"
-                          d="M14 2H6C4.9 2 4 2.9 4 4V18C4 19.1 4.9 20 6 20H14C15.1 20 16 19.1 16 18V4C16 2.9 15.1 2 14 2Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM14 18H6V16C6 14.7 8.7 14 10 14C11.3 14 14 14.7 14 16V18Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <i className="fas fa-map-marker-alt"></i>
                     </span>
                     <span className="nav-text">Xəritədə yeri</span>
                   </Nav.Link>
@@ -165,23 +95,7 @@ function Show({ show, handleClose }: ShowProps) {
                 <Nav.Item>
                   <Nav.Link eventKey="yekun" className="nav-link-metronic">
                     <span className="nav-icon">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          opacity="0.3"
-                          d="M14 2H6C4.9 2 4 2.9 4 4V18C4 19.1 4.9 20 6 20H14C15.1 20 16 19.1 16 18V4C16 2.9 15.1 2 14 2Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM14 18H6V16C6 14.7 8.7 14 10 14C11.3 14 14 14.7 14 16V18Z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <i className="fas fa-check-circle"></i>
                     </span>
                     <span className="nav-text">Yekun</span>
                   </Nav.Link>
@@ -281,45 +195,7 @@ function Show({ show, handleClose }: ShowProps) {
                 </Tab.Pane>
 
                 <Tab.Pane eventKey="statuslar" className="h-100">
-                  <h4 className="mb-4 text-primary">Status tarixçəsi</h4>
-                  <div className="row">
-                    <div className="col-md-3">
-                      <h4>Partlayış</h4>
-                      <p>Kateqoriya</p>
-                      <p>Çağırış nömrəsi</p>
-                      <p>Ad Soyad</p>
-                      <p>Telefon nömrəsi</p>
-                      <p>Qəza haqqında qısa şərh</p>
-                      <p>Dispetçer</p>
-                    </div>
-                    <div className="col-md-3">
-                      <h4>Partlayış</h4>
-                      <p>Kateqoriya</p>
-                      <p>Çağırış nömrəsi</p>
-                      <p>Ad Soyad</p>
-                      <p>Telefon nömrəsi</p>
-                      <p>Qəza haqqında qısa şərh</p>
-                      <p>Dispetçer</p>
-                    </div>
-                    <div className="col-md-3">
-                      <h4>Partlayış</h4>
-                      <p>Kateqoriya</p>
-                      <p>Çağırış nömrəsi</p>
-                      <p>Ad Soyad</p>
-                      <p>Telefon nömrəsi</p>
-                      <p>Qəza haqqında qısa şərh</p>
-                      <p>Dispetçer</p>
-                    </div>
-                    <div className="col-md-3">
-                      <h4>Partlayış</h4>
-                      <p>Kateqoriya</p>
-                      <p>Çağırış nömrəsi</p>
-                      <p>Ad Soyad</p>
-                      <p>Telefon nömrəsi</p>
-                      <p>Qəza haqqında qısa şərh</p>
-                      <p>Dispetçer</p>
-                    </div>
-                  </div>
+                  <Status />
                 </Tab.Pane>
                 <Tab.Pane eventKey="sekiller" className="h-100">
                   <h4 className="mb-4 text-primary">Şəkillər</h4>
