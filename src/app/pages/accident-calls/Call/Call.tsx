@@ -2,7 +2,7 @@ import React from "react";
 import { Content } from "./../../../../_metronic/layout/components/content/Content";
 import CallListHeader from "./../Call/CallListHeader/CallListHeader";
 import List from "./List/List";
-import CallListFooter from "./CallListFooter/CallListFooter";
+import Pagination from "./../../../components/Pagination/Pagination";
 
 function Call() {
   return (
@@ -10,7 +10,15 @@ function Call() {
       <div className={`card mb-5 mb-xl-8`}>
         <CallListHeader />
         <List />
-        <CallListFooter />
+        <Pagination
+          currentPage={4}
+          totalPages={99}
+          pageSize={99}
+          onPageChange={(page) => console.log("Page changed to:", page)}
+          onPageSizeChange={(size) =>
+            console.log("Page size changed to:", size)
+          }
+        />
       </div>
     </Content>
   );

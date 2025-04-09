@@ -28,12 +28,12 @@ const data: DataRow[] = [
     high_category: "Qaz sızma/Qaz iyi",
   },
   {
-    id: 1,
+    id: 2,
     category: "Ağac düşüb",
     high_category: "Qaz sızma/Qaz iyi",
   },
   {
-    id: 1,
+    id: 3,
     category: "Ağac düşüb",
     high_category: "Qaz sızma/Qaz iyi",
   },
