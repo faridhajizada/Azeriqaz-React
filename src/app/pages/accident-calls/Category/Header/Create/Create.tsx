@@ -31,7 +31,7 @@ function Create() {
         <i className="ki-duotone ki-plus fs-2"></i> Yeni Kateqoriya yarat
       </Button>
 
-      <Modal show={showModal} onHide={closeModal} centered size="lg">
+      <Modal show={showModal} onHide={closeModal} centered size="sm">
         <Modal.Header closeButton className="bg-primary ">
           <Modal.Title className="text-white">Yeni Avtomobil yarat</Modal.Title>
         </Modal.Header>

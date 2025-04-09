@@ -21,8 +21,8 @@ function Show({ show, handleClose }: ShowProps) {
       dialogClassName="modal-dialog-metronic"
       contentClassName="modal-content-metronic"
     >
-      <Modal.Header closeButton className="modal-header-metronic">
-        <Modal.Title className="modal-title-metronic">
+<Modal.Header closeButton className="bg-primary">
+          <Modal.Title className="text-white">
           <span className="svg-icon svg-icon-2x">
             <svg
               xmlns="http://www.w3.org/2000/svg"

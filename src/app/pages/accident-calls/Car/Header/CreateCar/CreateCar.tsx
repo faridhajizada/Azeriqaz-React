@@ -34,7 +34,7 @@ const CreateCarModal: React.FC = () => {
         <i className="ki-duotone ki-plus fs-2"></i> Yeni avtomobil yarat
       </Button>
 
-      <Modal show={showModal} onHide={closeModal} centered size="lg">
+      <Modal show={showModal} onHide={closeModal} centered size="md">
         <Modal.Header closeButton className="bg-primary ">
           <Modal.Title className="text-white">Yeni Avtomobil yarat</Modal.Title>
         </Modal.Header>
