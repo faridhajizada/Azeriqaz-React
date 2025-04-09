@@ -1,5 +1,6 @@
 import { Modal, Button, Tab, Nav, Row, Col } from "react-bootstrap";
 import "./Show.scss";
+import Map from "./Map/Map";
 
 interface ShowProps {
   show: boolean;
@@ -11,7 +12,7 @@ function Show({ show, handleClose }: ShowProps) {
     <Modal
       show={show}
       onHide={handleClose}
-      size="lg"
+      size="xl"
       dialogClassName="modal-dialog-metronic"
       contentClassName="modal-content-metronic"
     >
@@ -353,15 +354,7 @@ function Show({ show, handleClose }: ShowProps) {
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="xerite" className="h-100">
-                  <h4 className="mb-4 text-primary">Xəritədə yeri</h4>
-                  <div
-                    className="border p-4 bg-light"
-                    style={{ height: "400px" }}
-                  >
-                    <div className="h-100 d-flex align-items-center justify-content-center">
-                      <p className="text-muted">Xəritə yüklənəcək</p>
-                    </div>
-                  </div>
+                  <Map />
                 </Tab.Pane>
                 <Tab.Pane eventKey="yekun" className="h-100">
                   <p>yekun</p>
