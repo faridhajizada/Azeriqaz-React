@@ -20,18 +20,22 @@ const SidebarMenuMain = () => {
         title="Layout Builder"
         fontIcon="bi-layers"
       /> */}
+
+      {/* Users */}
       <SidebarMenuItem
         to="/dashboard/users"
         title="İstifadəçilər"
         icon="profile-circle"
         fontIcon="bi-person"
       />
+      {/* Users */}
 
+      {/* Accident-calls */}
       <SidebarMenuItemWithSub
         to="#"
         title="Qəza çağırışı"
-        fontIcon="bi-archive"
-        icon="ki-outline ki-abstract-42 fs-2"
+        fontIcon="bi-exclamation-triangle"
+        icon="bi bi-exclamation-triangle fs-2"
       >
         <SidebarMenuItem
           to="/dashboard/accident-calls/call"
@@ -54,6 +58,42 @@ const SidebarMenuMain = () => {
           hasBullet={true}
         />
       </SidebarMenuItemWithSub>
+      {/* Accident-calls */}
+
+      {/* Tənzimləmələr */}
+      <SidebarMenuItemWithSub
+        to="#"
+        title="Tənzimləmələr"
+        fontIcon="bi-gear"
+        icon="bi bi-gear fs-2"
+      >
+        <SidebarMenuItem
+          to="/dashboard/settings/role"
+          title="Rollar"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/settings/permission"
+          title="Səlahiyyətlər"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/settings/module"
+          title="Modullar"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/settings/logs"
+          title="Loglar"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/settings/process-log"
+          title="Əməliyyat tarixçəsi"
+          hasBullet={true}
+        />
+      </SidebarMenuItemWithSub>
+      {/* Tənzimləmələr */}
 
       {/* <div className="menu-item">
         <div className="menu-content pt-8 pb-2">
