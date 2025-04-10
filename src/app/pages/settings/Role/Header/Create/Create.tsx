@@ -1,16 +1,61 @@
 import React, { useState } from "react";
 import { Modal, Form, Button, Accordion, Table } from "react-bootstrap";
 
-const permissionActions = ["Yarat", "Redaktə", "Bax", "Sil", "Bərpa et"];
+const permissionActions = [
+  "Yarat",
+  "Redakt et",
+  "Bax",
+  "Hamisina bax",
+  "Sil",
+  "Bərpa et",
+];
 
 const permissions = [
   {
     module: "Tənzimləmələr",
-    items: ["Rollar", "Səlahiyyətlər", "İstifadəçilər", "Rayonlar", "Modullar"],
+    items: {
+      Rollar: ["Yarat", "Redakt et", "Bax", "Hamisina bax", "Sil", "Bərpa et"],
+      Səlahiyyətlər: [
+        "Yarat",
+        "Redakt et",
+        "Bax",
+        "Hamisina bax",
+        "Sil",
+        "Bərpa et",
+      ],
+      İstifadəçilər: [
+        "Yarat",
+        "Redakt et",
+        "Bax",
+        "Hamisina bax",
+        null,
+        "Bərpa et",
+      ],
+      Rayonlar: [
+        "Yarat",
+        "Redakt et",
+        "Bax",
+        "Hamisina bax",
+        "Sil",
+        "Bərpa et",
+      ],
+      Modullar: ["Yarat", null, "Bax", "Hamisina bax", "Sil", "Bərpa et"],
+    },
   },
   {
     module: "Qəza çağırışı",
-    items: ["Çağırış siyahısı", "Çağırış əlavə et"],
+    items: {
+      Avtomobillər: [
+        "Yarat",
+        "Redakt et",
+        null,
+        "Hamisina bax",
+        null,
+        "Bərpa et",
+      ],
+      Kategoriyalar: ["Yarat", "Redakt et", "Bax", null, "Sil", null],
+      Statistikalar: ["Yarat", null, "Bax", "Hamisina bax", null, null],
+    },
   },
 ];
 
@@ -20,7 +65,6 @@ function Create() {
     roleName: "",
     systemName: "",
   });
-
   const [selectedPermissions, setSelectedPermissions] = useState<any>({});
 
   const openModal = () => setShowModal(true);
@@ -37,11 +81,45 @@ function Create() {
     item: string,
     action: string
   ) => {
+    const moduleObj = permissions.find((p) => p.module === module);
+    if (!moduleObj) return;
+
+    const actionIndex = permissionActions.indexOf(action);
+    if (actionIndex === -1) return;
+
+    const actionAllowed = moduleObj.items[item][actionIndex] !== null;
+    if (!actionAllowed) return;
+
     setSelectedPermissions((prev: any) => {
       const updated = { ...prev };
       if (!updated[module]) updated[module] = {};
       if (!updated[module][item]) updated[module][item] = {};
       updated[module][item][action] = !updated[module][item]?.[action];
+      return updated;
+    });
+  };
+
+  const toggleRow = (module: string, item: string) => {
+    const moduleObj = permissions.find((p) => p.module === module);
+    if (!moduleObj) return;
+
+    const currentState = Object.entries(moduleObj.items[item]).some(
+      ([action, allowed], index) =>
+        allowed !== null &&
+        selectedPermissions?.[module]?.[item]?.[permissionActions[index]]
+    );
+
+    setSelectedPermissions((prev: any) => {
+      const updated = { ...prev };
+      if (!updated[module]) updated[module] = {};
+      if (!updated[module][item]) updated[module][item] = {};
+
+      permissionActions.forEach((action, index) => {
+        if (moduleObj.items[item][index] !== null) {
+          updated[module][item][action] = !currentState;
+        }
+      });
+
       return updated;
     });
   };
@@ -58,7 +136,10 @@ function Create() {
 
       if (!updated[module]) updated[module] = {};
 
-      currentModule.items.forEach((item) => {
+      Object.entries(currentModule.items).forEach(([item, actions]) => {
+        const actionIndex = permissionActions.indexOf(action);
+        if (actionIndex === -1 || actions[actionIndex] === null) return;
+
         if (!updated[module][item]) updated[module][item] = {};
         updated[module][item][action] = isChecked;
       });
@@ -71,8 +152,66 @@ function Create() {
     const currentModule = permissions.find((p) => p.module === module);
     if (!currentModule) return false;
 
-    return currentModule.items.every(
-      (item) => selectedPermissions?.[module]?.[item]?.[action]
+    const actionIndex = permissionActions.indexOf(action);
+    if (actionIndex === -1) return false;
+
+    return Object.entries(currentModule.items).every(([item, actions]) => {
+      if (actions[actionIndex] === null) return true;
+      return selectedPermissions?.[module]?.[item]?.[action];
+    });
+  };
+
+  const toggleModuleAllPermissions = (module: string) => {
+    const currentModule = permissions.find((p) => p.module === module);
+    if (!currentModule) return;
+
+    const allChecked = Object.entries(currentModule.items).every(
+      ([item, actions]) =>
+        permissionActions.every((action, index) => {
+          if (actions[index] === null) return true;
+          return selectedPermissions?.[module]?.[item]?.[action];
+        })
+    );
+
+    const updated = { ...selectedPermissions };
+
+    Object.entries(currentModule.items).forEach(([item, actions]) => {
+      if (!updated[module]) updated[module] = {};
+      if (!updated[module][item]) updated[module][item] = {};
+      permissionActions.forEach((action, index) => {
+        if (actions[index] !== null) {
+          updated[module][item][action] = !allChecked;
+        }
+      });
+    });
+
+    setSelectedPermissions(updated);
+  };
+
+  const isModuleAllChecked = (module: string) => {
+    const currentModule = permissions.find((p) => p.module === module);
+    if (!currentModule) return false;
+
+    return Object.entries(currentModule.items).every(([item, actions]) =>
+      permissionActions.every((action, index) => {
+        if (actions[index] === null) return true;
+        return selectedPermissions?.[module]?.[item]?.[action];
+      })
+    );
+  };
+
+  const isRowChecked = (module: string, item: string) => {
+    const moduleObj = permissions.find((p) => p.module === module);
+    if (!moduleObj) return false;
+
+    const enabledActions = permissionActions.filter(
+      (action, index) => moduleObj.items[item][index] !== null
+    );
+
+    if (enabledActions.length === 0) return false;
+
+    return enabledActions.every(
+      (action) => selectedPermissions?.[module]?.[item]?.[action]
     );
   };
 
@@ -90,7 +229,7 @@ function Create() {
       </Button>
 
       <Modal show={showModal} onHide={closeModal} centered size="xl">
-        <Modal.Header closeButton className="bg-primary ">
+        <Modal.Header closeButton className="bg-primary">
           <Modal.Title className="text-white">Yeni Rol yarat</Modal.Title>
         </Modal.Header>
 
@@ -128,53 +267,133 @@ function Create() {
                     <Table bordered hover>
                       <thead className="table-light">
                         <tr>
-                          <th>Modul</th>
-                          {permissionActions.map((action) => (
-                            <th key={action}>
-                              <div className="d-flex align-items-center justify-content-center gap-2">
-                                <Form.Check
-                                  type="checkbox"
-                                  checked={isActionColumnChecked(
-                                    perm.module,
-                                    action
-                                  )}
-                                  onChange={(e) =>
-                                    toggleActionColumn(
-                                      perm.module,
-                                      action,
-                                      e.target.checked
-                                    )
-                                  }
-                                />
-                                <span>{action}</span>
-                              </div>
-                            </th>
-                          ))}
+                          <th>
+                            <div
+                              className="d-flex align-items-center justify-content-between  gap-2"
+                              style={{ cursor: "pointer" }}
+                              onClick={() =>
+                                toggleModuleAllPermissions(perm.module)
+                              }
+                            >
+                              <span>Modul</span>
+                              <Form.Check
+                                type="checkbox"
+                                checked={isModuleAllChecked(perm.module)}
+                                onChange={() => {}}
+                                onClick={(e) => e.stopPropagation()}
+                              />
+                            </div>
+                          </th>
+                          {permissionActions.map((action) => {
+                            const isChecked = isActionColumnChecked(
+                              perm.module,
+                              action
+                            );
+
+                            const hasEnabledCheckboxes = Object.values(
+                              perm.items
+                            ).some((itemActions) => {
+                              const actionIndex =
+                                permissionActions.indexOf(action);
+                              return (
+                                actionIndex !== -1 &&
+                                itemActions[actionIndex] !== null
+                              );
+                            });
+
+                            return (
+                              <th key={action}>
+                                <div
+                                  className="d-flex align-items-center justify-content-between ps-8 gap-2"
+                                  style={{
+                                    cursor: hasEnabledCheckboxes
+                                      ? "pointer"
+                                      : "default",
+                                  }}
+                                  onClick={() => {
+                                    if (hasEnabledCheckboxes) {
+                                      toggleActionColumn(
+                                        perm.module,
+                                        action,
+                                        !isChecked
+                                      );
+                                    }
+                                  }}
+                                >
+                                  <span>{action}</span>
+                                  <Form.Check
+                                    type="checkbox"
+                                    checked={isChecked}
+                                    onChange={(e) =>
+                                      toggleActionColumn(
+                                        perm.module,
+                                        action,
+                                        e.target.checked
+                                      )
+                                    }
+                                    onClick={(e) => e.stopPropagation()}
+                                    disabled={!hasEnabledCheckboxes}
+                                    className={
+                                      !hasEnabledCheckboxes ? "text-muted" : ""
+                                    }
+                                  />
+                                </div>
+                              </th>
+                            );
+                          })}
                         </tr>
                       </thead>
                       <tbody>
-                        {perm.items.map((item) => (
-                          <tr key={item}>
-                            <td>{item}</td>
-                            {permissionActions.map((action) => (
-                              <td key={action}>
+                        {Object.entries(perm.items).map(([item, actions]) => (
+                          <tr
+                            key={item}
+                            style={{ cursor: "pointer" }}
+                            onClick={() => toggleRow(perm.module, item)}
+                          >
+                            <td>
+                              <div className="d-flex align-items-center justify-content-between gap-2">
+                                <span>{item}</span>
                                 <Form.Check
                                   type="checkbox"
-                                  checked={
-                                    selectedPermissions?.[perm.module]?.[
-                                      item
-                                    ]?.[action] || false
-                                  }
-                                  onChange={() =>
-                                    handleCheckboxChange(
-                                      perm.module,
-                                      item,
-                                      action
-                                    )
-                                  }
+                                  checked={isRowChecked(perm.module, item)}
+                                  onChange={() => {}}
+                                  onClick={(e) => e.stopPropagation()}
                                 />
-                              </td>
-                            ))}
+                              </div>
+                            </td>
+                            {permissionActions.map((action) => {
+                              const actionIndex =
+                                permissionActions.indexOf(action);
+                              const isAllowed =
+                                actionIndex !== -1 &&
+                                actions[actionIndex] !== null;
+                              return (
+                                <td key={action} className="text-center">
+                                  <Form.Check
+                                    type="checkbox"
+                                    checked={
+                                      (isAllowed &&
+                                        selectedPermissions?.[perm.module]?.[
+                                          item
+                                        ]?.[action]) ||
+                                      false
+                                    }
+                                    onChange={() =>
+                                      handleCheckboxChange(
+                                        perm.module,
+                                        item,
+                                        action
+                                      )
+                                    }
+                                    disabled={!isAllowed}
+                                    className={!isAllowed ? "text-muted" : ""}
+                                    onClick={(e) => e.stopPropagation()}
+                                  />
+
+                                  
+                                </td>
+                              );
+                            })}
                           </tr>
                         ))}
                       </tbody>
