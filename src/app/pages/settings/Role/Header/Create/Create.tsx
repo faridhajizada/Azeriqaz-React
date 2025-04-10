@@ -369,28 +369,30 @@ function Create() {
                                 actions[actionIndex] !== null;
                               return (
                                 <td key={action} className="text-center">
-                                  <Form.Check
-                                    type="checkbox"
-                                    checked={
-                                      (isAllowed &&
-                                        selectedPermissions?.[perm.module]?.[
-                                          item
-                                        ]?.[action]) ||
-                                      false
-                                    }
-                                    onChange={() =>
-                                      handleCheckboxChange(
-                                        perm.module,
-                                        item,
-                                        action
-                                      )
-                                    }
-                                    disabled={!isAllowed}
-                                    className={!isAllowed ? "text-muted" : ""}
-                                    onClick={(e) => e.stopPropagation()}
-                                  />
-
-                                  
+                                  <div className="d-flex align-items-center justify-content-between ps-8 gap-2">
+                                  <p className="text-gray-600"> {action}</p>
+                                    <Form.Check
+                                      type="checkbox"
+                                      checked={
+                                        (isAllowed &&
+                                          selectedPermissions?.[perm.module]?.[
+                                            item
+                                          ]?.[action]) ||
+                                        false
+                                      }
+                                      onChange={() =>
+                                        handleCheckboxChange(
+                                          perm.module,
+                                          item,
+                                          action
+                                        )
+                                      }
+                                      disabled={!isAllowed}
+                                      className={!isAllowed ? "text-muted" : ""}
+                                      onClick={(e) => e.stopPropagation()}
+                                    />
+                    
+                                  </div>
                                 </td>
                               );
                             })}
