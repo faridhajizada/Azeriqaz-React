@@ -35,7 +35,14 @@ const PrivateRoutes = () => {
         {/* Pages */}
         <Route path="dashboard" element={<DashboardWrapper />} />
         <Route path="builder" element={<BuilderPageWrapper />} />
-        <Route path="/dashboard/users" element={<Users />} />
+        <Route
+          path="/dashboard/users"
+          element={
+            <SuspensedView>
+              <Users />
+            </SuspensedView>
+          }
+        />
         <Route
           path="/dashboard/accident-calls/call"
           element={

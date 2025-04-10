@@ -1,4 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
+import MySvgIcon from "./../MyIcon/Info/Info";
 
 interface DeleteModalProps {
   show: boolean;
@@ -22,10 +23,7 @@ export const DeleteModal = ({
       <Modal.Body className="px-4">
         <div className="text-center">
           <div className="mb-3">
-            <i
-              className="fa-solid fa-circle-exclamation"
-              style={{ fontSize: "8rem", color: "#f6c000" }}
-            ></i>
+            <MySvgIcon />
           </div>
 
           <h3 className="mx-4 fs-semibold" style={{ margin: "40px 0" }}>
@@ -53,3 +51,5 @@ export const DeleteModal = ({
     </Modal>
   );
 };
+
+export default DeleteModal;
