@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import CreateModal from "./CreateModal";
-import CallListFilter from "./CallListFilter";
-import PageTitle from "./../../../../components/PageTitle/PageTitle";
-import "./CallListHeader.scss";
+import Filter from "./Filter";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
+import "./Header.scss";
 
-function CallListHeader() {
+function Header() {
   const [showFilter, setShowFilter] = useState(false);
 
   return (
@@ -29,10 +29,10 @@ function CallListHeader() {
           </button>
           <CreateModal />
         </div>
-        <CallListFilter showFilter={showFilter} />
+        <Filter showFilter={showFilter} />
       </div>
     </>
   );
 }
 
-export default CallListHeader;
+export default Header;

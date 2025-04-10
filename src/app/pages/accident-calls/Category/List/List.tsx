@@ -84,7 +84,7 @@ function List() {
                 {columns.map((column) => (
                   <td key={column.key} className="px-2">
                     {column.isAction ? (
-                      <div >
+                      <div  className="text-center">
                         <OperationsDropdown
                           items={[
                             { label: "Redaktə et" },

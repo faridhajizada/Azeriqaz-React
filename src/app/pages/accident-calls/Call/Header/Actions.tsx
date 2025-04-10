@@ -1,6 +1,6 @@
 import React from "react";
 
-const CallListActions = () => {
+const Actions = () => {
   return (
     <>
       {[
@@ -28,4 +28,4 @@ const CallListActions = () => {
   );
 };
 
-export default CallListActions;
+export default Actions;

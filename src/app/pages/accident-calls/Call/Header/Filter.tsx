@@ -1,17 +1,17 @@
 import React from "react";
-import CallListForm from "./CallListForm";
-import CallListActions from "./CallListActions";
+import Form from "./Form";
+import Actions from "./Actions";
 
-const CallListFilter = ({ showFilter }) => {
+const Filter = ({ showFilter }) => {
   return (
     <div className={`filter-accordion mt-3 ${showFilter ? "open" : ""}`}>
       <div className="card p-4 shadow-sm">
         <div className="row">
           <div className="col-md-10">
-            <CallListForm />
+            <Form />
           </div>
           <div className="col-md-2">
-            <CallListActions />
+            <Actions />
           </div>
         </div>
       </div>
@@ -32,4 +32,4 @@ const CallListFilter = ({ showFilter }) => {
   );
 };
 
-export default CallListFilter;
+export default Filter;

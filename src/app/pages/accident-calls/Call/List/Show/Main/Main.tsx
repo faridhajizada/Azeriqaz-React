@@ -8,7 +8,7 @@ function Main() {
         <div className="separator separator-dashed mb-6"></div>
 
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-6">
             <div className="d-flex flex-column mb-8">
               <span className="text-gray-600 fs-7 fw-bold mb-2">
                 Kateqoriya
@@ -32,7 +32,7 @@ function Main() {
               <span className="text-dark fs-6 fw-bolder">0506567001</span>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-6">
             <div className="d-flex flex-column mb-8">
               <span className="text-gray-600 fs-7 fw-bold mb-2">Fin</span>
               <span className="text-dark fs-6 fw-bolder">5zk92ne</span>
@@ -51,19 +51,13 @@ function Main() {
             </div>
             <div className="d-flex flex-column mb-8">
               <span className="text-gray-600 fs-7 fw-bold mb-2">Status</span>
-              <span className="badge badge-light-success fs-7 fw-bold">
+              <span
+                className="badge badge-light-success fs-7 fw-bold"
+                style={{ width: "fit-content" }}
+              >
                 Tamamlanıb
               </span>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-auto">
-        <div className="card bg-light">
-          <div className="card-body p-4">
-            <h5 className="text-gray-800 fw-bold mb-4">Qeyd</h5>
-            <p className="text-gray-600 mb-0">test qeyd</p>
           </div>
         </div>
       </div>

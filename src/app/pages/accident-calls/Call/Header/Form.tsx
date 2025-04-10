@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Flatpickr from "react-flatpickr";
 
-const CallListForm = () => {
+const Form = () => {
   const [formData, setFormData] = useState({
     dateRange1: null,
     dateRange2: null,
@@ -138,4 +138,4 @@ const CallListForm = () => {
   );
 };
 
-export default CallListForm;
+export default Form;
