@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Content } from "./../../../_metronic/layout/components/content";
+import { Content } from "../../../_metronic/layout/components/content/index.ts";
 import List from "./List/List.tsx";
 import Header from "./Header/Header.tsx";
-import PageTitle from "./../../components/PageTitle/PageTitle.tsx";
-import Pagination from "./../../components/Pagination/Pagination.tsx";
+import PageTitle from "../../components/PageTitle/PageTitle.tsx";
+import Pagination from "../../components/Pagination/Pagination.tsx";
 
 function Users() {
   const [showFilter, setShowFilter] = useState(false);

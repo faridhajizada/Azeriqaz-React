@@ -18,7 +18,7 @@ const PrivateRoutes = () => {
     () => import("../modules/apps/user-management/UsersPage")
   );
 
-  const Users = lazy(() => import("../pages/Users/Users"));
+  const Users = lazy(() => import("../pages/users/Users"));
   const Call = lazy(() => import("../pages/accident-calls/Call/Call"));
   const Car = lazy(() => import("./../pages/accident-calls/Car/Car"));
   const Category = lazy(
@@ -26,6 +26,17 @@ const PrivateRoutes = () => {
   );
   const Statistics = lazy(
     () => import("./../pages/accident-calls/Statistics/Statistics")
+  );
+
+  
+  const Role = lazy(() => import("../pages/settings/Role/Role"));
+  const Permission = lazy(
+    () => import("../pages/settings/Permission/Permission")
+  );
+  const Module = lazy(() => import("../pages/settings/Module/Module"));
+  const Logs = lazy(() => import("../pages/settings/Logs/Logs"));
+  const ProcessLog = lazy(
+    () => import("../pages/settings/ProcessLog/ProcessLog")
   );
   return (
     <Routes>
@@ -43,6 +54,7 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
+        {/* Accident-calls */}
         <Route
           path="/dashboard/accident-calls/call"
           element={
@@ -75,6 +87,51 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
+        {/* Accident-calls */}
+
+        {/* Settings */}
+        <Route
+          path="/dashboard/settings/role"
+          element={
+            <SuspensedView>
+              <Role />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/settings/permission"
+          element={
+            <SuspensedView>
+              <Permission />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/settings/module"
+          element={
+            <SuspensedView>
+              <Module />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/settings/logs"
+          element={
+            <SuspensedView>
+              <Logs />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/settings/process-log"
+          element={
+            <SuspensedView>
+              <ProcessLog />
+            </SuspensedView>
+          }
+        />
+
+        {/* Settings */}
 
         <Route path="menu-test" element={<MenuTestPage />} />
         {/* Lazy Modules */}

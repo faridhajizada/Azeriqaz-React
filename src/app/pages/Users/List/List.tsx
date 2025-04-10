@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import OperationsDropdown from "./../../../components/OperationsDropdown/OperationsDropdown";
-import { DeleteModal } from "./../../../components/DeleteModal/DeleteModal";
+import OperationsDropdown from "../../../components/OperationsDropdown/OperationsDropdown";
+import { DeleteModal } from "../../../components/DeleteModal/DeleteModal";
 
 type TableColumn = {
   key: string;
