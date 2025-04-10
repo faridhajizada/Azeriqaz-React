@@ -84,7 +84,7 @@ export const PageNavigation: React.FC<PageNavigationProps> = ({
 }) => {
   const getPageNumbers = () => {
     const pages = [];
-    const maxVisiblePages = 5;
+    const maxVisiblePages = 3;
 
     if (totalPages <= maxVisiblePages) {
       for (let i = 1; i <= totalPages; i++) {
