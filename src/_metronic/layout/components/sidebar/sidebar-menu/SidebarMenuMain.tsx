@@ -83,13 +83,13 @@ const SidebarMenuMain = () => {
           hasBullet={true}
         />
         <SidebarMenuItem
-          to="/dashboard/settings/logs"
-          title="Loglar"
+          to="/dashboard/settings/process-log"
+          title="Əməliyyat tarixçəsi"
           hasBullet={true}
         />
         <SidebarMenuItem
-          to="/dashboard/settings/process-log"
-          title="Əməliyyat tarixçəsi"
+          to="/dashboard/settings/logs"
+          title="Loglar"
           hasBullet={true}
         />
       </SidebarMenuItemWithSub>
