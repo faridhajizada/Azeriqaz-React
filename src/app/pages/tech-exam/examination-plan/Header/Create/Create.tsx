@@ -29,14 +29,12 @@ const CreateCarModal: React.FC = () => {
   return (
     <>
       <Button variant="primary" onClick={openModal}>
-        <i className="ki-duotone ki-plus fs-2"></i> Yeni Səlahiyyət yarat
+        <i className="ki-duotone ki-plus fs-2"></i> Yeni Sifariş yarat
       </Button>
 
       <Modal show={showModal} onHide={closeModal} centered size="md">
         <Modal.Header closeButton className="bg-primary ">
-          <Modal.Title className="text-white">
-            Yeni Səlahiyyət yarat
-          </Modal.Title>
+          <Modal.Title className="text-white">Yeni Sifariş yarat</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
