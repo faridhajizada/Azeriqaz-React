@@ -3,20 +3,20 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { MasterLayout } from "../../_metronic/layout/MasterLayout";
 import TopBarProgress from "react-topbar-progress-indicator";
 import { DashboardWrapper } from "../pages/dashboard/DashboardWrapper";
-import { MenuTestPage } from "../pages/MenuTestPage";
+// import { MenuTestPage } from "../pages/MenuTestPage";
 import { getCSSVariableValue } from "../../_metronic/assets/ts/_utils";
 import { WithChildren } from "../../_metronic/helpers";
 import BuilderPageWrapper from "../pages/layout-builder/BuilderPageWrapper";
 
 const PrivateRoutes = () => {
-  const ProfilePage = lazy(() => import("../modules/profile/ProfilePage"));
-  const WizardsPage = lazy(() => import("../modules/wizards/WizardsPage"));
-  const AccountPage = lazy(() => import("../modules/accounts/AccountPage"));
-  const WidgetsPage = lazy(() => import("../modules/widgets/WidgetsPage"));
-  const ChatPage = lazy(() => import("../modules/apps/chat/ChatPage"));
-  const UsersPage = lazy(
-    () => import("../modules/apps/user-management/UsersPage")
-  );
+  // const ProfilePage = lazy(() => import("../modules/profile/ProfilePage"));
+  // const WizardsPage = lazy(() => import("../modules/wizards/WizardsPage"));
+  // const AccountPage = lazy(() => import("../modules/accounts/AccountPage"));
+  // const WidgetsPage = lazy(() => import("../modules/widgets/WidgetsPage"));
+  // const ChatPage = lazy(() => import("../modules/apps/chat/ChatPage"));
+  // const UsersPage = lazy(
+  //   () => import("../modules/apps/user-management/UsersPage")
+  // );
 
   const Users = lazy(() => import("../pages/users/Users"));
   const Call = lazy(() => import("../pages/accident-calls/Call/Call"));
@@ -28,7 +28,6 @@ const PrivateRoutes = () => {
     () => import("./../pages/accident-calls/Statistics/Statistics")
   );
 
-  
   const Role = lazy(() => import("../pages/settings/Role/Role"));
   const Permission = lazy(
     () => import("../pages/settings/Permission/Permission")
@@ -38,6 +37,34 @@ const PrivateRoutes = () => {
   const ProcessLog = lazy(
     () => import("../pages/settings/ProcessLog/ProcessLog")
   );
+
+  const ExaminationPlan = lazy(
+    () => import("../pages/tech-exam/examination-plan/ExaminationPlan")
+  );
+  const ShutdownPan = lazy(
+    () => import("../pages/tech-exam/shutdown-plan/ShutdownPan")
+  );
+
+  const Device = lazy(() => import("../pages/tech-exam/device/Device"));
+  const Violation = lazy(
+    () => import("../pages/tech-exam/violation/Violation")
+  );
+  const ExaminationYearly = lazy(
+    () => import("../pages/tech-exam/examination-yearly/ExaminationYearly")
+  );
+
+  const Contractor = lazy(
+    () => import("../pages/tech-exam/contractor/Contractor")
+  );
+
+  const Examination = lazy(
+    () => import("../pages/tech-exam/examination/Examination")
+  );
+
+  const TechStatistics = lazy(
+    () => import("../pages/tech-exam/statistics/Statistics")
+  );
+
   return (
     <Routes>
       <Route element={<MasterLayout />}>
@@ -130,11 +157,77 @@ const PrivateRoutes = () => {
             </SuspensedView>
           }
         />
-
         {/* Settings */}
 
-        <Route path="menu-test" element={<MenuTestPage />} />
-        {/* Lazy Modules */}
+        {/* Texniki müayinə */}
+        <Route
+          path="/dashboard/tech-exam/examination-plan"
+          element={
+            <SuspensedView>
+              <ExaminationPlan />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/tech-exam/shutdown-plan"
+          element={
+            <SuspensedView>
+              <ShutdownPan />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/tech-exam/device"
+          element={
+            <SuspensedView>
+              <Device />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/tech-exam/violation"
+          element={
+            <SuspensedView>
+              <Violation />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/tech-exam/examination-yearly"
+          element={
+            <SuspensedView>
+              <ExaminationYearly />
+            </SuspensedView>
+          }
+        />
+
+        <Route
+          path="/dashboard/tech-exam/contractor"
+          element={
+            <SuspensedView>
+              <Contractor />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/tech-exam/examination"
+          element={
+            <SuspensedView>
+              <Examination />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path="/dashboard/tech-exam/statistics"
+          element={
+            <SuspensedView>
+              <TechStatistics />
+            </SuspensedView>
+          }
+        />
+        {/* Texniki müayinə */}
+
+        {/* <Route path="menu-test" element={<MenuTestPage />} />
         <Route
           path="crafted/pages/profile/*"
           element={
@@ -182,7 +275,7 @@ const PrivateRoutes = () => {
               <UsersPage />
             </SuspensedView>
           }
-        />
+        /> */}
         {/* Page Not Found */}
         <Route path="*" element={<Navigate to="/error/404" />} />
       </Route>
