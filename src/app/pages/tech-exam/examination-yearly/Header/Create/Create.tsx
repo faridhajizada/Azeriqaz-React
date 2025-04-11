@@ -29,47 +29,50 @@ const CreateCarModal: React.FC = () => {
   return (
     <>
       <Button variant="primary" onClick={openModal}>
-        <i className="ki-duotone ki-plus fs-2"></i> Yeni Səlahiyyət yarat
+        <i className="ki-duotone ki-plus fs-2"></i> Yeni müayinə planı daxil et
       </Button>
 
       <Modal show={showModal} onHide={closeModal} centered size="md">
         <Modal.Header closeButton className="bg-primary ">
           <Modal.Title className="text-white">
-            Yeni Səlahiyyət yarat
+            Yeni müayinə planı daxil et
           </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <div className="row">
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Səlahiyyət</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                {/* //add file */}
+                <Form.Label>İşçi</Form.Label>
+                <Form.Control
+                  type="file"
+                  name="permissionName"
+                  value={formData.permissionName}
+                  onChange={handleChange}
+                  placeholder="İşçi"
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>İşçi</Form.Label>
                 <Form.Control
                   type="text"
                   name="permission"
                   value={formData.permission}
                   onChange={handleChange}
-                  placeholder="Səlahiyyət"
+                  placeholder="İşçi"
+                  required
                 />
               </Form.Group>
-
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Səlahiyyət sistem adı</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="permissionName"
-                  value={formData.permissionName}
-                  onChange={handleChange}
-                  placeholder="Səlahiyyət sistem adı"
-                />
-              </Form.Group>
-
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Modul</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>Region</Form.Label>
                 <Form.Select
                   name="distmodulerict"
                   value={formData.module}
                   onChange={handleChange}
+                  required
                 >
                   <option value="">---</option>
                   <option value="Nərimanov">Nərimanov</option>
@@ -77,15 +80,17 @@ const CreateCarModal: React.FC = () => {
                 </Form.Select>
               </Form.Group>
 
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>İmkanlar</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>Rayon</Form.Label>
                 <Form.Select
-                  name="ability"
-                  value={formData.ability}
+                  name="distmodulerict"
+                  value={formData.module}
                   onChange={handleChange}
+                  required
                 >
                   <option value="">---</option>
-                  <option value="Elçin Məmmədov">Elçin Məmmədov</option>
+                  <option value="Nərimanov">Nərimanov</option>
+                  <option value="Xətai">Xətai</option>
                 </Form.Select>
               </Form.Group>
             </div>

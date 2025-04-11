@@ -4,8 +4,10 @@ import OperationsDropdown from "./../../../../components/OperationsDropdown/Oper
 
 type DataRow = {
   id: number;
-  permissions: string;
-  ability: string[];
+  code: number;
+  meter: string;
+  type: string;
+  action: boolean;
 };
 
 type Column = {
@@ -14,57 +16,58 @@ type Column = {
   isAction?: boolean;
 };
 
-export const columns: Column[] = [
+const columns: Column[] = [
   { key: "id", label: "ID" },
-  { key: "permissions", label: "səlahiyyət" },
-  { key: "ability", label: "İmkanlar" },
+  { key: "code", label: "Kod" },
+  { key: "meter", label: "qurğu" },
+  { key: "type", label: "Tip" },
   { key: "actions", label: "Əməliyyatlar", isAction: true },
 ];
 
 const data: DataRow[] = [
   {
     id: 1,
-    permissions: "Plan üzrə qrafiklər",
-    ability: [
-      "Yarat",
-      "Redaktə",
-      "Bax",
-      "Hamısına",
-      "bax",
-      "Sil",
-      "Bərpa et",
-      "Qalıcı sil",
-    ],
+    code: 32,
+    meter: "Qurğu 1",
+    type: "Tip 1",
+    action: true,
   },
   {
     id: 2,
-    permissions: "Tənzimləyici iş planı",
-    ability: ["Yarat", "Redaktə", "Sil", "Bərpa et", "Qalıcı sil"],
+    code: 32,
+    meter: "Qurğu 2",
+    type: "Tip 2",
+    action: true,
   },
   {
     id: 3,
-    permissions: "Tənzimləyici baxış planı",
-    ability: ["Yarat", "Redaktə", "Sil", "Bərpa et", "Qalıcı sil"],
+    code: 32,
+    meter: "Qurğu 3",
+    type: "Tip 3",
+    action: true,
   },
   {
     id: 4,
-    permissions: "Texniki baxış mobil",
-    ability: ["Yarat", "Redaktə", "Bax", "Hamısına", "bax", "Sil"],
+    code: 32,
+    meter: "Qurğu 4",
+    type: "Tip 4",
+    action: true,
   },
 ];
 
-const List: React.FC = () => {
-  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
+function List() {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [itemToDelete, setItemToDelete] = useState<DataRow | null>(null);
 
-  const handleDeleteClick = (item: DataRow): void => {
+  const handleDeleteClick = (item: DataRow) => {
+    console.log("mauuu");
     setItemToDelete(item);
     setShowDeleteModal(true);
   };
 
-  const handleConfirmDelete = (): void => {
+  const handleConfirmDelete = () => {
     if (itemToDelete) {
-      console.log("deleted:", itemToDelete);
+      console.log("Удаляем категорию:", itemToDelete);
     }
     setShowDeleteModal(false);
   };
@@ -109,19 +112,8 @@ const List: React.FC = () => {
                         />
                       </div>
                     ) : (
-                      <span className="text-gray-900 fw-bold fs-6 d-flex gap-2">
-                        {column.key === "ability"
-                          ? (row[column.key] as string[]).map(
-                              (ability, index) => (
-                                <span
-                                  key={index}
-                                  className="d-block text-primary border border-primary rounded p-1"
-                                >
-                                  {ability}
-                                </span>
-                              )
-                            )
-                          : String(row[column.key as keyof DataRow])}
+                      <span className="text-gray-900 fw-bold fs-6">
+                        {row[column.key as keyof DataRow]}
                       </span>
                     )}
                   </td>
@@ -135,10 +127,10 @@ const List: React.FC = () => {
         show={showDeleteModal}
         onHide={() => setShowDeleteModal(false)}
         onConfirm={handleConfirmDelete}
-        title="Səlahiyyəti silmək istədiyinizə əminsiniz?"
+        title={"Müayinəni silmək istədiyinizə əminsiniz?"}
       />
     </div>
   );
-};
+}
 
 export default List;
