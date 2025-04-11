@@ -2,7 +2,7 @@ import React from "react";
 import PageTitle from "../../../components/PageTitle/PageTitle";
 import { Content } from "./../../../../_metronic/layout/components/content/Content";
 import Pagination from "./../../../components/Pagination/Pagination";
-import Header from "./Header/Header";
+import Header from "../shutdown-plan/Header/Header";
 import List from "./List/List";
 
 function ExaminationPlan() {

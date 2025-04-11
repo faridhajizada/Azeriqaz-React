@@ -5,16 +5,6 @@ const Actions = () => {
     <>
       {[
         { label: "Axtar", icon: "fas fa-search", className: "btn btn-primary" },
-        {
-          label: "Sıfırla",
-          icon: "fas fa-sync-alt",
-          className: "btn btn-secondary text-dark",
-        },
-        {
-          label: "Excel-ə ixrac",
-          icon: "fas fa-file-excel",
-          className: "btn btn-success",
-        },
       ].map((button, index) => (
         <div key={index} className="mb-3 col-md-12">
           <div className="d-flex align-items-end h-100">

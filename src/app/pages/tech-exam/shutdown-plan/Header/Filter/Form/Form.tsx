@@ -23,11 +23,7 @@ const Form = () => {
 
   const workerOptions = ["İşçi 1", "İşçi 2", "İşçi 3"];
   const dataOptions = ["Bugun", "Dünən", "Bu həftə", "Bu ay"];
-  const statusOptions = ["Status 1", "Status 2", "Status 3"];
-  const yearlyOptions = ["İl 1", "İl 2", "İl 3"];
-  const orderedOptions = ["Sifariş 1", "Sifariş 2", "Sifariş 3"];
-  const regionOptions = ["Region 1", "Region 2", "Region 3"];
-  const rayonOptions = ["Rayon 1", "Rayon 2", "Rayon 3"];
+
 
   const inputs = [
     {
@@ -43,40 +39,8 @@ const Form = () => {
       options: workerOptions,
     },
     { name: "personalCode", type: "text", placeholder: "İşçi personal kod " },
-    { name: "abonent", type: "text", placeholder: "Abonent   " },
-    { name: "abonentCode", type: "text", placeholder: "Abonent Kodu  " },
-    {
-      name: "status",
-      type: "select",
-      placeholder: "Status seçin",
-      options: statusOptions,
-    },
-    {
-      name: "yearlyOptions",
-      type: "select",
-      placeholder: "Illik",
-      options: yearlyOptions,
-    },
-    {
-      name: "orderedOptions",
-      type: "select",
-      placeholder: "Sifarişci",
-      options: orderedOptions,
-    },
-    { name: "adress", type: "text", placeholder: "Ünvan" },
-    { name: "meterNumber", type: "text", placeholder: "Sayğac nömrəsi" },
-    {
-      name: "regionOptions",
-      type: "select",
-      placeholder: "Region seçin",
-      options: regionOptions,
-    },
-    {
-      name: "rayonOptions",
-      type: "select",
-      placeholder: "Rayon seçin",
-      options: rayonOptions,
-    },
+
+   
   ];
 
   return (
