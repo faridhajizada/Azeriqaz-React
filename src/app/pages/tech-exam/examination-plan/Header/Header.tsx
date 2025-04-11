@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import Filter from "./Filter/Filter";
+import CreateModal from "./CreateModal";
+import Filter from "./Filter";
+import PageTitle from "../../../../components/PageTitle/PageTitle";
+import "./Header.scss";
 
 function Header() {
   const [showFilter, setShowFilter] = useState(false);
+
   return (
     <>
       <div className="py-8 px-2">
@@ -14,7 +18,7 @@ function Header() {
           >
             <i className="fs-2 fas fa-filter"></i> Filter
           </button>
-
+          <CreateModal />
         </div>
         <Filter showFilter={showFilter} />
       </div>
