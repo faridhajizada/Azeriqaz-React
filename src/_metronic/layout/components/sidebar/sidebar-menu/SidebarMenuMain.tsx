@@ -95,6 +95,57 @@ const SidebarMenuMain = () => {
       </SidebarMenuItemWithSub>
       {/* Tənzimləmələr */}
 
+      {/* Texniki müayinə */}
+      <SidebarMenuItemWithSub
+        to="#"
+        title="Texniki müayinə"
+        fontIcon="bi-gear"
+        icon="bi bi-activity fs-2"
+      >
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/examination-plan"
+          title="Müayinə Planı"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/shutdown-plan"
+          title="Dayandırma Planı"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/device"
+          title="Qurğular"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/violation"
+          title="Pozuntu"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/examination-yearly"
+          title="İllik qrafiklər"
+          hasBullet={true}
+        />
+
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/contractor"
+          title="Podratçılar"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/examination"
+          title="Müayinə aktları"
+          hasBullet={true}
+        />
+        <SidebarMenuItem
+          to="/dashboard/tech-exam/statistics"
+          title="Statistikalar"
+          hasBullet={true}
+        />
+      </SidebarMenuItemWithSub>
+      {/* Texniki müayinə */}
+
       {/* <div className="menu-item">
         <div className="menu-content pt-8 pb-2">
           <span className="menu-section text-muted text-uppercase fs-8 ls-1">
