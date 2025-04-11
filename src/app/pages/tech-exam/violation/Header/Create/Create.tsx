@@ -29,64 +29,37 @@ const CreateCarModal: React.FC = () => {
   return (
     <>
       <Button variant="primary" onClick={openModal}>
-        <i className="ki-duotone ki-plus fs-2"></i> Yeni Səlahiyyət yarat
+        <i className="ki-duotone ki-plus fs-2"></i> Yeni Pozuntu yarat
       </Button>
 
-      <Modal show={showModal} onHide={closeModal} centered size="md">
+      <Modal show={showModal} onHide={closeModal} centered size="sm">
         <Modal.Header closeButton className="bg-primary ">
-          <Modal.Title className="text-white">
-            Yeni Səlahiyyət yarat
-          </Modal.Title>
+          <Modal.Title className="text-white">Yeni Pozuntu yarat</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <div className="row">
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Səlahiyyət</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>Pozuntu adı</Form.Label>
                 <Form.Control
                   type="text"
                   name="permission"
                   value={formData.permission}
                   onChange={handleChange}
-                  placeholder="Səlahiyyət"
+                  placeholder="Pozuntu adı"
                 />
               </Form.Group>
 
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Səlahiyyət sistem adı</Form.Label>
+              <Form.Group className="col-md-12 mb-3">
+                <Form.Label>Kod adı</Form.Label>
                 <Form.Control
                   type="text"
                   name="permissionName"
                   value={formData.permissionName}
                   onChange={handleChange}
-                  placeholder="Səlahiyyət sistem adı"
+                  placeholder="Kod adı"
                 />
-              </Form.Group>
-
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>Modul</Form.Label>
-                <Form.Select
-                  name="distmodulerict"
-                  value={formData.module}
-                  onChange={handleChange}
-                >
-                  <option value="">---</option>
-                  <option value="Nərimanov">Nərimanov</option>
-                  <option value="Xətai">Xətai</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group className="col-md-6 mb-3">
-                <Form.Label>İmkanlar</Form.Label>
-                <Form.Select
-                  name="ability"
-                  value={formData.ability}
-                  onChange={handleChange}
-                >
-                  <option value="">---</option>
-                  <option value="Elçin Məmmədov">Elçin Məmmədov</option>
-                </Form.Select>
               </Form.Group>
             </div>
             <Modal.Footer>

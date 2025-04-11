@@ -135,7 +135,7 @@ const List: React.FC = () => {
         show={showDeleteModal}
         onHide={() => setShowDeleteModal(false)}
         onConfirm={handleConfirmDelete}
-        title="Səlahiyyəti silmək istədiyinizə əminsiniz?"
+        title="Dayandırma planı istədiyinizə əminsiniz?"
       />
     </div>
   );

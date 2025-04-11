@@ -127,7 +127,7 @@ function List() {
         show={showDeleteModal}
         onHide={() => setShowDeleteModal(false)}
         onConfirm={handleConfirmDelete}
-        title={"Kategoriyanı silmək istədiyinizə əminsiniz?"}
+        title={"Qurğunu silmək istədiyinizə əminsiniz?"}
       />
     </div>
   );
