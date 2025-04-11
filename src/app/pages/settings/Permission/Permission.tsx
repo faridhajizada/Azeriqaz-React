@@ -14,7 +14,7 @@ function Permission() {
           breadcrumb={[
             { label: "Dashboard", path: "/dashboard" },
             {
-              label: "Səlahiyyətlər",
+              label: "Tənzimləmələr",
               path: "/dashboard/settings/permission",
             },
             {
