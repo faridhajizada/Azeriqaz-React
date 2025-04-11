@@ -4,19 +4,17 @@ import Flatpickr from "react-flatpickr";
 const Form = () => {
   const [formData, setFormData] = useState({
     dateRange1: null,
-    dateRange2: null,
-    worker: "",
-    subscriberCode: "",
+    newData: "",
+    personalCode: "",
+    abonent: "",
+    abonentCode: "",
+    statusOptions: null,
+    yearlyOptions: null,
+    orderedOptions: null,
+    adress: "",
     meterNumber: "",
-    phoneNumber: "",
-    status: "",
-    code: "",
-    crmCode: "",
-    caller: "",
-    category: "",
-    subCategory: "",
-    region: "",
-    district: "",
+    regionOptions: null,
+    rayonOptions: null,
   });
 
   const handleChange = (e) => {
@@ -24,54 +22,60 @@ const Form = () => {
   };
 
   const workerOptions = ["İşçi 1", "İşçi 2", "İşçi 3"];
-  const statusOptions = ["Aktiv", "Passiv", "Yoxlanılmamış"];
-  const categoryOptions = ["Kategoriya 1", "Kategoriya 2", "Kategoriya 3"];
-  const subCategoryOptions = ["Alt kateqoriya 1", "Alt kateqoriya 2"];
-  const regionOptions = ["Bakı", "Sumqayit", "Gəncə"];
-  const districtOptions = ["Nəsimi", "Nərimanov", "Xətai"];
+  const dataOptions = ["Bugun", "Dünən", "Bu həftə", "Bu ay"];
+  const statusOptions = ["Status 1", "Status 2", "Status 3"];
+  const yearlyOptions = ["İl 1", "İl 2", "İl 3"];
+  const orderedOptions = ["Sifariş 1", "Sifariş 2", "Sifariş 3"];
+  const regionOptions = ["Region 1", "Region 2", "Region 3"];
+  const rayonOptions = ["Rayon 1", "Rayon 2", "Rayon 3"];
 
   const inputs = [
     {
-      name: "worker",
+      name: "dataOptions",
+      type: "select",
+      placeholder: "Bugun",
+      options: dataOptions,
+    },
+    {
+      name: "workerOptions",
       type: "select",
       placeholder: "İşçi seçin",
       options: workerOptions,
     },
-    { name: "subscriberCode", type: "text", placeholder: "Abunəçi kodu" },
-    { name: "meterNumber", type: "text", placeholder: "Sayğac nömrəsi" },
-    { name: "phoneNumber", type: "text", placeholder: "Telefon nömrəsi" },
+    { name: "personalCode", type: "text", placeholder: "İşçi personal kod " },
+    { name: "abonent", type: "text", placeholder: "Abonent   " },
+    { name: "abonentCode", type: "text", placeholder: "Abonent Kodu  " },
     {
       name: "status",
       type: "select",
       placeholder: "Status seçin",
       options: statusOptions,
     },
-    { name: "code", type: "text", placeholder: "Kod" },
-    { name: "crmCode", type: "text", placeholder: "CRM Kodu" },
-    { name: "caller", type: "text", placeholder: "Zəng edən" },
     {
-      name: "category",
+      name: "yearlyOptions",
       type: "select",
-      placeholder: "Kateqoriya seçin",
-      options: categoryOptions,
+      placeholder: "Illik",
+      options: yearlyOptions,
     },
     {
-      name: "subCategory",
+      name: "orderedOptions",
       type: "select",
-      placeholder: "Alt kateqoriya seçin",
-      options: subCategoryOptions,
+      placeholder: "Sifarişci",
+      options: orderedOptions,
     },
+    { name: "adress", type: "text", placeholder: "Ünvan" },
+    { name: "meterNumber", type: "text", placeholder: "Sayğac nömrəsi" },
     {
-      name: "region",
+      name: "regionOptions",
       type: "select",
       placeholder: "Region seçin",
       options: regionOptions,
     },
     {
-      name: "district",
+      name: "rayonOptions",
       type: "select",
       placeholder: "Rayon seçin",
-      options: districtOptions,
+      options: rayonOptions,
     },
   ];
 
@@ -90,20 +94,7 @@ const Form = () => {
             placeholder="02/04/2025 - 02/04/2025"
           />
         </div>
-        <div className="col-md-3">
-          <Flatpickr
-            value={formData.dateRange2}
-            onChange={(date) => setFormData({ ...formData, dateRange2: date })}
-            className="form-control"
-            options={{
-              mode: "range",
-              dateFormat: "d/m/Y",
-            }}
-            placeholder="02/04/2025 - 02/04/2025"
-          />
-        </div>
 
-        {/* Остальные поля */}
         {inputs.map(({ name, type, placeholder, options }) => (
           <div className="col-md-3" key={name}>
             {type === "select" ? (
