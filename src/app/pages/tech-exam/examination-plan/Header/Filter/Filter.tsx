@@ -1,19 +1,23 @@
 import React from "react";
+import Form from "./Form/Form";
+import Actions from "./Action/Actions";
+import "./Filter.scss";
 
-function Filter() {
+const Filter = ({ showFilter }) => {
   return (
-    <div className="input-group" style={{ width: "300px" }}>
-      <span className="input-group-text">
-        <i className="fas fa-search"></i>
-      </span>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Axtarış..."
-        aria-label="Search"
-      />
+    <div className={`filter-accordion mt-3 ${showFilter ? "open" : ""}`}>
+      <div className="card p-4 shadow-sm">
+        <div className="row">
+          <div className="col-md-10">
+            <Form />
+          </div>
+          <div className="col-md-2">
+            <Actions />
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Filter;
