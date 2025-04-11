@@ -91,11 +91,11 @@ const components = {
       component: lazy(() => import("../pages/tech-exam/contractor/Contractor")),
       path: "contractor",
     },
-    Examination: {
+    ExaminationAkt: {
       component: lazy(
-        () => import("../pages/tech-exam/examination/Examination")
+        () => import("../pages/tech-exam/examination-akt/ExaminationAkt")
       ),
-      path: "examination",
+      path: "examination-akt",
     },
     TechStatistics: {
       component: lazy(() => import("../pages/tech-exam/statistics/Statistics")),

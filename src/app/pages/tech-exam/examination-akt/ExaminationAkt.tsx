@@ -1,11 +1,11 @@
 import React from "react";
 import PageTitle from "../../../components/PageTitle/PageTitle";
-import { Content } from "./../../../../_metronic/layout/components/content/Content";
-import Pagination from "./../../../components/Pagination/Pagination";
+import { Content } from "../../../../_metronic/layout/components/content/Content";
+import Pagination from "../../../components/Pagination/Pagination";
 import Header from "./Header/Header";
 import List from "./List/List";
 
-function Examination() {
+function ExaminationAkt() {
   return (
     <Content>
       <div className={`card mb-5 mb-xl-8`}>
@@ -39,4 +39,4 @@ function Examination() {
   );
 }
 
-export default Examination;
+export default ExaminationAkt;

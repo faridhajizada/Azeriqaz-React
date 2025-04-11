@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { DeleteModal } from "./../../../../components/DeleteModal/DeleteModal";
-import OperationsDropdown from "./../../../../components/OperationsDropdown/OperationsDropdown";
+import { DeleteModal } from "../../../../components/DeleteModal/DeleteModal";
+import OperationsDropdown from "../../../../components/OperationsDropdown/OperationsDropdown";
 
 type DataRow = {
   id: number;

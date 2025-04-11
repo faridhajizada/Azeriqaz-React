@@ -117,7 +117,7 @@ const SidebarMenuMain = () => {
           hasBullet={true}
         />
         <SidebarMenuItem
-          to="/dashboard/tech-exam/examination"
+          to="/dashboard/tech-exam/examination-akt"
           title="Müayinə aktları"
           hasBullet={true}
         />
